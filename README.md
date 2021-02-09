@@ -2,7 +2,7 @@
 ### Project 2 
 #### Authors:  
 Dan Felleman  
-Louella Estillero
+Louella Estillero  
 Ben Simon  
 Philip Crane  
 
