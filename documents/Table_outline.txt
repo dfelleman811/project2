@@ -28,6 +28,10 @@ Inventory----------------------------------
 8.	Weight
 9.	Dimensions 
 
+? 
+Do we want to keep descriptions and weight separate like a reference table? That we can add to 
+each time we 'pick up' a new product...and then have a separate table for inventory to denote was is in stock?
+
 Vendor-------------------------------------
 1.	vendor id
 2.	Vendor Name
@@ -65,7 +69,7 @@ Relationships------------------------------
 Customer has One-to-many with Transactions
 Inventory has Many-to-many with Transactions
 Vendor has Many-to-many with Inventory
-Review has One-to-One with Inventory
+Review has One-to-One with Inventory - I think this should be Many-to-One?
 
 Required Tables----------------------------
 Customers
@@ -107,5 +111,7 @@ Type of customer(Individual or Business)
 	Percent Business sales.
 	
 	
-	
+
+Questions
+- Do we want to denote how a piece can be replaced? Like modular or need to buy the whole thing again.
 	
