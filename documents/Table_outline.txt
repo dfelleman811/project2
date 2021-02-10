@@ -1,0 +1,111 @@
+Information to track:
+Customer-----------------------------------
+1.	customer id
+2.  First name
+3.  Last name
+4.  Address
+	* Shipping and Billing
+		Fields
+		* Street
+		* City
+		* State
+		* zip
+		* Apt #
+5.  Phone number
+6.  email
+7.  Business name
+8. 	Website*
+9. 	Social media accounts*
+
+Inventory----------------------------------	
+1.	Stock number (id)
+2. 	Name
+3.	Description
+4.	Vendor id 	
+5.	Cost
+6. 	How many in stock
+7.	How many on order
+8.	Weight
+9.	Dimensions 
+
+Vendor-------------------------------------
+1.	vendor id
+2.	Vendor Name
+3.	Contact
+4.	Address
+	 Fields
+		* Street & apt
+		* City
+		* State
+		* zip
+5. 	phone
+6.	email
+7.	website
+8.	Notes
+
+Transactions-------------------------------
+1. 	Invoice id
+2. 	Date
+3.	Customer id
+4.	Items sold
+	 fields
+		* Stock Number
+		* Sale price
+		* quantity
+
+Reviews------------------------------------
+1. 	Company review
+2. 	Company rating
+3.	Company difficulty rating
+4. 	Customer review
+5. 	Customer rating
+6.	Customer difficult rating	
+		
+Relationships------------------------------
+Customer has One-to-many with Transactions
+Inventory has Many-to-many with Transactions
+Vendor has Many-to-many with Inventory
+Review has One-to-One with Inventory
+
+Required Tables----------------------------
+Customers
+Inventory
+Reviews
+Transactions
+Vendors
+Joining-Tables
+	Inventory_Transactions
+	Inventory_Vendor
+
+	
+Calculations-------------------------------
+Sale price
+Invoice Total
+Shipping
+
+Statistics---------------------------------
+-----For each inventory item---------------
+Profit per unit
+Seasonal popularly
+Sales per month
+Customer rating
+Vendor cost vs shipping
+Shipping per unit 
+Difficulty
+Days in inventory
+Region most sold to
+Type of customer(Individual or Business)
+	Percent Business sales.
+	
+-----Total Business statistics-------------
+Total profit
+Seasonal popularly
+Sales per month
+Vendor cost vs shipping
+Region most sold to
+Type of customer(Individual or Business)
+	Percent Business sales.
+	
+	
+	
+	
