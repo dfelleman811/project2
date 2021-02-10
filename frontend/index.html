@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excape - Escape Room Supplies</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- FontAwesome CDN -->
+    <script src="https://kit.fontawesome.com/91073f3496.js" crossorigin="anonymous"></script>
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-md bg-light sticky-top py-2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Excape</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-right" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto flex-nowrap">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">Cart</a>
+                    </li>
+                    <li class="nav-item d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <!-- Main -->
+    <main>
+        <!-- Featured Items -->
+        <div class="text-center" style="padding-top:5rem;">
+            <h1>Featured Items</h1>
+        </div>
+        <br>
+        <div class="container mx-auto">
+            <div class="row">
+              <div class="col-md-4 padding">
+                <a href="item1">
+                    <img src="img/placeholder.png" width="100%" style="padding-bottom:10px">
+                </a>
+                <h6 class="text-center">Featured Item 1</h6>
+                <p class="text-center">$123</p>
+              </div>
+              <div class="col-md-4">
+                <a href="item2">
+                    <img src="img/placeholder.png" width="100%" style="padding-bottom:10px">
+                </a>
+                <h6 class="text-center">Featured Item 2</h6>
+                <p class="text-center">$123</p>
+              </div>
+              <div class="col-md-4">
+                <a href="item3">
+                    <img src="img/placeholder.png" width="100%" style="padding-bottom:10px">
+                </a>
+                <h6 class="text-center">Featured Item 3</h6>
+                <p class="text-center">$123</p>
+              </div>
+            </div>
+        </div>
+
+        
+
+        <!-- Categories -->
+
+        <div class="container mx-auto">
+            <hr>
+            <br>
+            <h3>Category 1</h3>
+            <br>
+            <div class="row" id="cat1">
+                <div class="col-md-2 product-grid text-center">
+                    <a href="/products/#">
+                        <img src="img/gridplaceholder.png" class="w-100">
+                    </a>
+                    <h6 id="itemName">Item 1</h6>
+                    <p id="price">$123</p>
+                </div>
+                <div class="col-md-2 product-grid text-center">
+                    <a href="/products/#">
+                        <img src="img/gridplaceholder.png" class="w-100">
+                    </a>
+                    <h6 id="itemName">Item 2</h6>
+                    <p id="price">$123</p>
+                </div>
+                <div class="col-md-2 product-grid text-center">
+                    <a href="/products/#">
+                        <img src="img/gridplaceholder.png" class="w-100">
+                    </a>
+                    <h6 id="itemName">Item 3</h6>
+                    <p id="price">$123</p>
+                </div>
+                <div class="col-md-2 product-grid text-center">
+                    <a href="/products/#">
+                        <img src="img/gridplaceholder.png" class="w-100">
+                    </a>
+                    <h6 id="itemName">Item 4</h6>
+                    <p id="price">$123</p>
+                </div>               
+            </div>
+            <br>
+            <hr>
+            <br>
+            <h3>Category 2</h3>
+            <br>
+            <div class="row" id="cat2">
+                <div class="col-md-2 product-grid text-center">
+                    <a href="/products/#">
+                        <img src="img/gridplaceholder.png" class="w-100">
+                    </a>
+                    <h6 id="itemName">Item 1</h6>
+                    <p id="price">$123</p>
+                </div>
+                <div class="col-md-2 product-grid text-center">
+                    <a href="/products/#">
+                        <img src="img/gridplaceholder.png" class="w-100">
+                    </a>
+                    <h6 id="itemName">Item 2</h6>
+                    <p id="price">$123</p>
+                </div>
+                <div class="col-md-2 product-grid text-center">
+                    <a href="/products/#">
+                        <img src="img/gridplaceholder.png" class="w-100">
+                    </a>
+                    <h6 id="itemName">Item 3</h6>
+                    <p id="price">$123</p>
+                </div>
+                <div class="col-md-2 product-grid text-center">
+                    <a href="/products/#">
+                        <img src="img/gridplaceholder.png" class="w-100">
+                    </a>
+                    <h6 id="itemName">Item 4</h6>
+                    <p id="price">$123</p>
+                </div>               
+            </div>
+            <br>
+            <hr>
+            <br>
+            <h3>Category 3</h3>
+            <br>
+            <div class="row" id="cat1">
+                <div class="col-md-2 product-grid text-center">
+                    <a href="/products/#">
+                        <img src="img/gridplaceholder.png" class="w-100">
+                    </a>
+                    <h6 id="itemName">Item 1</h6>
+                    <p id="price">$123</p>
+                </div>
+                <div class="col-md-2 product-grid text-center">
+                    <a href="/products/#">
+                        <img src="img/gridplaceholder.png" class="w-100">
+                    </a>
+                    <h6 id="itemName">Item 2</h6>
+                    <p id="price">$123</p>
+                </div>
+                <div class="col-md-2 product-grid text-center">
+                    <a href="/products/#">
+                        <img src="img/gridplaceholder.png" class="w-100">
+                    </a>
+                    <h6 id="itemName">Item 3</h6>
+                    <p id="price">$123</p>
+                </div>
+                <div class="col-md-2 product-grid text-center">
+                    <a href="/products/#">
+                        <img src="img/gridplaceholder.png" class="w-100">
+                    </a>
+                    <h6 id="itemName">Item 4</h6>
+                    <p id="price">$123</p>
+                </div>               
+            </div>
+            <br>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <!-- Bootstrap JS -->
+    
+</body>
+</html>
