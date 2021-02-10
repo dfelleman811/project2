@@ -4,12 +4,14 @@ create table users (
     user_id number(10) PRIMARY KEY,
     first_name varchar2(20),
     last_name varchar2(20),
+    business_name varchar2(30),
     email varchar2(30),
-    phone number(15),
+    phone number(30),
     address_1 varchar2(30),
-    address_2 varchar2(10),
-    street varchar2(30),
+    address_2 varchar2(30),
     city varchar2(30),
+    state varchar2(30),
+    country varchar2(20),
     zip number(15)
 );
 
@@ -35,25 +37,38 @@ create table inventory (
     name varchar2(20),
     description varchar2(500),
     weight_oz varchar2(10),
-    length_cm number(10),
-    width_cm number(10),
-    height_cm number(10),
+    dimensions_in varchar2(50), -- "10in x 10in x 10in (HxWxL)"
     num_stocked number(100),
     num_ordered number(100),
     time_to_solve_mins number(10),
     type varchar2(30),
+    retail_price number(10, 2),
     vendor_id number(10) -- foreign key to vendor table
 
 );
 
 -- transactions table
-create table transcactions (
+create table transactions (
     transaction_id number(10) PRIMARY KEY,
     date date,
     user_id number(10), -- foreign key to users table
-    item_id number(10),
-    sale_price number(10)
+    sale_price number(10, 2)
 );
+
+
+-- invoice table junction table / invoice (user end view) will use one t_id and this junction table
+create table invoices (
+    transaction_id number(10), -- FK to transaction
+    item_id number(10), -- FK to inventory
+    user_id number(10), -- FK to users
+    item_quantity number(10)
+);
+
+
+
+
+
+
 
 -- reviews table
 create table reviews (

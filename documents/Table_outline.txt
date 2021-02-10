@@ -30,7 +30,7 @@ Inventory----------------------------------
 
 ? 
 Do we want to keep descriptions and weight separate like a reference table? That we can add to 
-each time we 'pick up' a new product...and then have a separate table for inventory to denote was is in stock?
+each time we 'pick up' a new product...and then have a separate table for inventory to denote was is in stock? ANSWER one table
 
 Vendor-------------------------------------
 1.	vendor id
