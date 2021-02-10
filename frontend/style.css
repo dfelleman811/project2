@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tillana&display=swap');
+
+
+html, body{
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins',sans-serif;
+    color: rgb(0, 48, 6);
+    background-color: #F8F9FA;
+}
+
+.navbar{
+    padding:.8rem;
+}
+
+.navbar a{
+    font-family: 'Tillana', cursive;
+    font-size: 3em;
+    color: rgb(0, 48, 6);
+    line-height: 1;
+}
+
+hr{
+    border-top: 2px solid #b4b4b4;
+    width: 100%;
+    margin-top: .3rem;
+    margin-bottom: 1rem;
+}
+
+.navbar-nav a{
+    font-family:'Poppins';
+}
+
+.navbar-nav li{
+    padding-left: 20px;
+}
+.nav-link {
+    font-size: 1.2em !important;
+}
+
+.padding{
+    padding-bottom: 2rem;
+}
+
+h6{
+    padding-top:10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: black;
+}
+
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+    color: black;
+}
