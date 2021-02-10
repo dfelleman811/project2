@@ -1,5 +1,7 @@
 package com.excape.beans;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +18,7 @@ public class Item {
 	@Column(name = "item_id", updatable = false)
 	@GeneratedValue(generator = "inventory_item_id_seq", strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "inventory_item_id_seq", sequenceName = "inventory_item_id_seq", allocationSize = 1)
-	private int item_id;
+	private int item_id; 
 	
 	@Column(name = "name")
 	private String name;
@@ -37,16 +39,19 @@ public class Item {
 	private int num_ordered;
 	
 	@Column(name = "time_to_solve_mins")
-	private int time_to_solve_mins;
+	private double time_to_solve_mins;
 	
 	@Column(name = "type")
 	private String type;
 	
 	@Column(name = "retail_price")
-	private int retail_price;
+	private BigDecimal retail_price;
 	
 	@Column(name = "vendor_id")
 	private int vendor_id;
+
+	
+	
 	
 	// No args constructor
 	public Item() {
@@ -55,7 +60,7 @@ public class Item {
 
 	// Contructor - no ID
 	public Item(String name, String description, String weight_oz, String dimensions_in, int num_stocked,
-			int num_ordered, int time_to_solve_mins, String type, int retail_price, int vendor_id) {
+			int num_ordered, double time_to_solve_mins, String type, java.math.BigDecimal retail_price, int vendor_id) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -71,7 +76,7 @@ public class Item {
 
 	// Fully parameterized constructor
 	public Item(int item_id, String name, String description, String weight_oz, String dimensions_in, int num_stocked,
-			int num_ordered, int time_to_solve_mins, String type, int retail_price, int vendor_id) {
+			int num_ordered, double time_to_solve_mins, String type, java.math.BigDecimal retail_price, int vendor_id) {
 		super();
 		this.item_id = item_id;
 		this.name = name;
@@ -142,11 +147,11 @@ public class Item {
 		this.num_ordered = num_ordered;
 	}
 
-	public int getTime_to_solve_mins() {
+	public double getTime_to_solve_mins() {
 		return time_to_solve_mins;
 	}
 
-	public void setTime_to_solve_mins(int time_to_solve_mins) {
+	public void setTime_to_solve_mins(double time_to_solve_mins) {
 		this.time_to_solve_mins = time_to_solve_mins;
 	}
 
@@ -158,11 +163,11 @@ public class Item {
 		this.type = type;
 	}
 
-	public int getRetail_price() {
+	public java.math.BigDecimal getRetail_price() {
 		return retail_price;
 	}
 
-	public void setRetail_price(int retail_price) {
+	public void setRetail_price(java.math.BigDecimal retail_price) {
 		this.retail_price = retail_price;
 	}
 
@@ -182,57 +187,5 @@ public class Item {
 				+ retail_price + ", vendor_id=" + vendor_id + "]";
 	}
 
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Item other = (Item) obj;
-		if (description == null) {
-			if (other.description != null)
-				return false;
-		} else if (!description.equals(other.description))
-			return false;
-		if (dimensions_in == null) {
-			if (other.dimensions_in != null)
-				return false;
-		} else if (!dimensions_in.equals(other.dimensions_in))
-			return false;
-		if (item_id != other.item_id)
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (num_ordered != other.num_ordered)
-			return false;
-		if (num_stocked != other.num_stocked)
-			return false;
-		if (retail_price != other.retail_price)
-			return false;
-		if (time_to_solve_mins != other.time_to_solve_mins)
-			return false;
-		if (type == null) {
-			if (other.type != null)
-				return false;
-		} else if (!type.equals(other.type))
-			return false;
-		if (vendor_id != other.vendor_id)
-			return false;
-		if (weight_oz == null) {
-			if (other.weight_oz != null)
-				return false;
-		} else if (!weight_oz.equals(other.weight_oz))
-			return false;
-		return true;
-	}
-	
-	
-	
 	
 }
