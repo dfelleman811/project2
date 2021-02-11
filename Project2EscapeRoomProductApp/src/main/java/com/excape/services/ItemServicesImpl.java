@@ -1,5 +1,7 @@
 package com.excape.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,32 @@ public class ItemServicesImpl implements ItemServices {
 	public Item addItem(Item i) {
 		ir.save(i);
 		return i;
+	}
+
+	@Override
+	public Item getItem(int itemId) {
+		return ir.findById(itemId).get();
+	}
+	
+	@Override
+	public List<Item> getItem(String itemName) {
+		return ir.findByName(itemName);
+	}
+
+	@Override
+	public List<Item> getAllItems() {
+		return (List<Item>) ir.findAll();
+	}
+
+	@Override
+	public Item updateItem(Item iChange) {
+		return ir.save(iChange);
+	}
+
+	@Override
+	public boolean deleteItem(int itemId) { // might need to add try catch? What if we pass an incorrect id or something that isn't an int?
+			ir.delete(ir.findById(itemId).get());
+			return true;
 	}
 
 }
