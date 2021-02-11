@@ -9,7 +9,7 @@ import com.excape.beans.Item;
 import com.excape.services.ItemServices;
 
 @RestController
-public class ActorController {
+public class ItemController {
 	
 	@Autowired
 	private ItemServices is;
