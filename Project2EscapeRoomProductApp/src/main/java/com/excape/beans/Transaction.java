@@ -9,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -32,7 +35,10 @@ public class Transaction {
 	// TODO Need to add in 'join table' - not sure how.... do I add a Class here as a field? Or maybe I do this in the 
 	// bean that actually will be the join table - invoices?
 	
-	// A transaction can have many items.
+	// One Transaction can have many items
+	@OneToMany
+	@JoinTable(name = "invoices", joinColumns = @JoinColumn(name = "transaction_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
+	private List<Item> items; 
 	
 	
 
