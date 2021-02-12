@@ -57,7 +57,7 @@ public class ItemController {
 	
 	
 	@DeleteMapping(value = "/items/{id}")
-	public boolean deleteItem(int id) {
+	public boolean deleteItem(@PathVariable("id") int id) {
 		return is.deleteItem(id);
 	}
 	
