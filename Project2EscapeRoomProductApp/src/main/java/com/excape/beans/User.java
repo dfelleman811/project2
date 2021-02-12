@@ -18,13 +18,13 @@ public class User {
 	@Column(name = "user_id", updatable = false)
 	@GeneratedValue(generator = "users_user_id_seq", strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "users_user_id_seq", sequenceName = "users_user_id_seq", allocationSize = 1)
-	private int user_id;
+	private int userId;
 	
-	private String first_name;
+	private String firstName;
 	
-	private String last_name;
+	private String lastName;
 	
-	private String business_name;
+	private String businessName;
 	
 	private String email;
 	
@@ -51,9 +51,9 @@ public class User {
 	public User(String first_name, String last_name, String business_name, String email, BigDecimal phone,
 			String address_1, String address_2, String city, String state, String country, int zip) {
 		super();
-		this.first_name = first_name;
-		this.last_name = last_name;
-		this.business_name = business_name;
+		this.firstName = first_name;
+		this.lastName = last_name;
+		this.businessName = business_name;
 		this.email = email;
 		this.phone = phone;
 		this.address_1 = address_1;
@@ -68,10 +68,10 @@ public class User {
 	public User(int user_id, String first_name, String last_name, String business_name, String email, BigDecimal phone,
 			String address_1, String address_2, String city, String state, String country, int zip) {
 		super();
-		this.user_id = user_id;
-		this.first_name = first_name;
-		this.last_name = last_name;
-		this.business_name = business_name;
+		this.userId = user_id;
+		this.firstName = first_name;
+		this.lastName = last_name;
+		this.businessName = business_name;
 		this.email = email;
 		this.phone = phone;
 		this.address_1 = address_1;
@@ -84,42 +84,42 @@ public class User {
 
 
 	public int getUser_id() {
-		return user_id;
+		return userId;
 	}
 
 
 	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+		this.userId = user_id;
 	}
 
 
 	public String getFirst_name() {
-		return first_name;
+		return firstName;
 	}
 
 
 	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+		this.firstName = first_name;
 	}
 
 
 	public String getLast_name() {
-		return last_name;
+		return lastName;
 	}
 
 
 	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+		this.lastName = last_name;
 	}
 
 
 	public String getBusiness_name() {
-		return business_name;
+		return businessName;
 	}
 
 
 	public void setBusiness_name(String business_name) {
-		this.business_name = business_name;
+		this.businessName = business_name;
 	}
 
 
@@ -205,8 +205,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "Users [user_id=" + user_id + ", first_name=" + first_name + ", last_name=" + last_name
-				+ ", business_name=" + business_name + ", email=" + email + ", phone=" + phone + ", address_1="
+		return "Users [user_id=" + userId + ", first_name=" + firstName + ", last_name=" + lastName
+				+ ", business_name=" + businessName + ", email=" + email + ", phone=" + phone + ", address_1="
 				+ address_1 + ", address_2=" + address_2 + ", city=" + city + ", state=" + state + ", country="
 				+ country + ", zip=" + zip + "]";
 	}
