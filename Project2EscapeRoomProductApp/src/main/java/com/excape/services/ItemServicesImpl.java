@@ -41,9 +41,14 @@ public class ItemServicesImpl implements ItemServices {
 	}
 
 	@Override
-	public boolean deleteItem(int itemId) { // might need to add try catch? What if we pass an incorrect id or something that isn't an int?
+	public boolean deleteItem(int itemId) {
+		try {	
 			ir.delete(ir.findById(itemId).get());
 			return true;
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }
