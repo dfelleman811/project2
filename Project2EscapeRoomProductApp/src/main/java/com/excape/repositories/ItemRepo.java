@@ -11,7 +11,7 @@ import com.excape.beans.Item;
 public interface ItemRepo extends CrudRepository<Item, Integer>{
 	
 	
-	public List<Item> findByName(String name);
+	public List<Item> findByNameIgnoreCase(String name);
 	
 	
 }
