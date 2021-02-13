@@ -20,6 +20,8 @@ public class Review {
 	
 	private int item_id;
 	
+	private int user_id;
+	
 	private int user_rating;
 	
 	private int user_difficulty_rating;
@@ -38,10 +40,11 @@ public class Review {
 	}
 
 
-	public Review(int item_id, int user_rating, int user_difficulty_rating, String user_review, int company_rating,
+	public Review(int item_id, int user_id, int user_rating, int user_difficulty_rating, String user_review, int company_rating,
 			int company_difficulty_rating, String company_review) {
 		super();
 		this.item_id = item_id;
+		this.user_id = user_id;
 		this.user_rating = user_rating;
 		this.user_difficulty_rating = user_difficulty_rating;
 		this.user_review = user_review;
@@ -51,11 +54,12 @@ public class Review {
 	}
 
 
-	public Review(int review_id, int item_id, int user_rating, int user_difficulty_rating, String user_review,
+	public Review(int review_id, int item_id, int user_id, int user_rating, int user_difficulty_rating, String user_review,
 			int company_rating, int company_difficulty_rating, String company_review) {
 		super();
 		this.review_id = review_id;
 		this.item_id = item_id;
+		this.user_id = user_id;
 		this.user_rating = user_rating;
 		this.user_difficulty_rating = user_difficulty_rating;
 		this.user_review = user_review;
@@ -78,7 +82,14 @@ public class Review {
 	public int getItem_id() {
 		return item_id;
 	}
+	
+	public int getUser_id() {
+		return user_id;
+	}
 
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
 
 	public void setItem_id(int item_id) {
 		this.item_id = item_id;
@@ -147,7 +158,7 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return "Review [review_id=" + review_id + ", item_id=" + item_id + ", user_rating=" + user_rating
+		return "Review [review_id=" + review_id + ", item_id=" + item_id + ",user_id=" + user_id + ", user_rating=" + user_rating
 				+ ", user_difficulty_rating=" + user_difficulty_rating + ", user_review=" + user_review
 				+ ", company_rating=" + company_rating + ", company_difficulty_rating=" + company_difficulty_rating
 				+ ", company_review=" + company_review + "]";
