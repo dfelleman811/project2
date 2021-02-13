@@ -30,14 +30,14 @@ public class ItemController {
 	
 	@GetMapping(value = "items/search", produces = "application/json")
 	public List<Item> getItem(@RequestParam(required = true) String name) {
-		List<Item> itemList = is.getAllItems();
+		List<Item> itemList = is.getItem(name);
 		return itemList;
 	}
 	
 	
 	@GetMapping(value = "/items", produces = "application/json")
 	public List<Item> getAllItems() {
-		List<Item> itemList = null;
+		List<Item> itemList = is.getAllItems();
 		return itemList;
 	}
 	

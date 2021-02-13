@@ -27,7 +27,7 @@ public class ItemServicesImpl implements ItemServices {
 	
 	@Override
 	public List<Item> getItem(String itemName) {
-		return ir.findByName(itemName);
+		return ir.findByNameIgnoreCase(itemName);
 	}
 
 	@Override
