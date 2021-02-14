@@ -10,6 +10,6 @@ import com.excape.beans.User;
 @Repository
 public interface UserRepo extends CrudRepository<User,Integer>{
 
-	List<User> findByLastName(String lastName);
-	List<User> findByBusinessName(String businessName);
+	List<User> findByLastNameIgnoreCase(String lastName);
+	List<User> findByBusinessNameIgnoreCase(String businessName);
 }
