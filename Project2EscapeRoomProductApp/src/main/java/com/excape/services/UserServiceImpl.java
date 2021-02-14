@@ -32,12 +32,12 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<User> getUsersByLastName(String lastName) {
-		return (List<User>) ur.findByLastName(lastName);
+		return (List<User>) ur.findByLastNameIgnoreCase(lastName);
 	}
 
 	@Override
 	public List<User> getUsersByBusinessName(String businessName) {
-		return (List<User>) ur.findByBusinessName(businessName);
+		return (List<User>) ur.findByBusinessNameIgnoreCase(businessName);
 	}
 
 	@Override
