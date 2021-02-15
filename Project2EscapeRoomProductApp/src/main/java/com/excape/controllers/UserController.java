@@ -3,6 +3,7 @@ package com.excape.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.excape.beans.User;
 import com.excape.services.UserService;
 
 @RestController
+@CrossOrigin
 public class UserController {
 	
 	@Autowired
@@ -29,6 +31,11 @@ public class UserController {
 	@GetMapping(value = "/users/{id}", produces = "application/json")
 	public User getUser(@PathVariable("id") int id) {
 		return us.getUser(id);
+	}
+	
+	@GetMapping(value ="/usersByEmail/{email}", produces = "application/json")
+	public User getUserByEmail(@PathVariable("email") String email) {
+		return us.getUser(email);
 	}
 	
 	@GetMapping(value = "/users", produces = "application/json")

@@ -22,17 +22,17 @@ public class Review {
 	
 	private int user_id;
 	
-	private int user_rating;
+	private int userRating;
 	
-	private int user_difficulty_rating;
+	private int userDifficultyRating;
 	
-	private String user_review;
+	private String userReview;
 	
-	private int company_rating;
+	private int companyRating;
 	
-	private int company_difficulty_rating;
+	private int companyDifficultyRating;
 	
-	private String company_review;
+	private String companyReview;
 
 	
 	public Review() {
@@ -40,32 +40,32 @@ public class Review {
 	}
 
 
-	public Review(int item_id, int user_id, int user_rating, int user_difficulty_rating, String user_review, int company_rating,
-			int company_difficulty_rating, String company_review) {
+	public Review(int item_id, int user_id, int userRating, int userDifficultyRating, String userReview, int companyRating,
+			int companyDifficultyRating, String companyReview) {
 		super();
 		this.item_id = item_id;
 		this.user_id = user_id;
-		this.user_rating = user_rating;
-		this.user_difficulty_rating = user_difficulty_rating;
-		this.user_review = user_review;
-		this.company_rating = company_rating;
-		this.company_difficulty_rating = company_difficulty_rating;
-		this.company_review = company_review;
+		this.userRating = userRating;
+		this.userDifficultyRating = userDifficultyRating;
+		this.userReview = userReview;
+		this.companyRating = companyRating;
+		this.companyDifficultyRating = companyDifficultyRating;
+		this.companyReview = companyReview;
 	}
 
 
-	public Review(int review_id, int item_id, int user_id, int user_rating, int user_difficulty_rating, String user_review,
-			int company_rating, int company_difficulty_rating, String company_review) {
+	public Review(int review_id, int item_id, int user_id, int userRating, int userDifficultyRating, String userReview,
+			int companyRating, int companyDifficultyRating, String companyReview) {
 		super();
 		this.review_id = review_id;
 		this.item_id = item_id;
 		this.user_id = user_id;
-		this.user_rating = user_rating;
-		this.user_difficulty_rating = user_difficulty_rating;
-		this.user_review = user_review;
-		this.company_rating = company_rating;
-		this.company_difficulty_rating = company_difficulty_rating;
-		this.company_review = company_review;
+		this.userRating = userRating;
+		this.userDifficultyRating = userDifficultyRating;
+		this.userReview = userReview;
+		this.companyRating = companyRating;
+		this.companyDifficultyRating = companyDifficultyRating;
+		this.companyReview = companyReview;
 	}
 
 
@@ -96,72 +96,71 @@ public class Review {
 	}
 
 
-	public int getUser_rating() {
-		return user_rating;
+	public int getUserRating() {
+		return userRating;
 	}
 
 
-	public void setUser_rating(int user_rating) {
-		this.user_rating = user_rating;
+	public void setUserRating(int userRating) {
+		this.userRating = userRating;
 	}
 
 
-	public int getUser_difficulty_rating() {
-		return user_difficulty_rating;
+	public int getUserDifficultyRating() {
+		return userDifficultyRating;
 	}
 
 
-	public void setUser_difficulty_rating(int user_difficulty_rating) {
-		this.user_difficulty_rating = user_difficulty_rating;
+	public void setUserDifficultyRating(int userDifficultyRating) {
+		this.userDifficultyRating = userDifficultyRating;
 	}
 
 
-	public String getUser_review() {
-		return user_review;
+	public String getUserReview() {
+		return userReview;
 	}
 
 
-	public void setUser_review(String user_review) {
-		this.user_review = user_review;
+	public void setUserReview(String userReview) {
+		this.userReview = userReview;
 	}
 
 
-	public int getCompany_rating() {
-		return company_rating;
+	public int getCompanyRating() {
+		return companyRating;
 	}
 
 
-	public void setCompany_rating(int company_rating) {
-		this.company_rating = company_rating;
+	public void setCompanyRating(int companyRating) {
+		this.companyRating = companyRating;
 	}
 
 
-	public int getCompany_difficulty_rating() {
-		return company_difficulty_rating;
+	public int getCompanyDifficultyRating() {
+		return companyDifficultyRating;
 	}
 
 
-	public void setCompany_difficulty_rating(int company_difficulty_rating) {
-		this.company_difficulty_rating = company_difficulty_rating;
+	public void setCompanDIfficultyRating(int companyDifficultyRating) {
+		this.companyDifficultyRating = companyDifficultyRating;
+	}
+
+	public String getCompanyReview() {
+		return companyReview;
 	}
 
 
-	public String getCompany_review() {
-		return company_review;
-	}
-
-
-	public void setCompany_review(String company_review) {
-		this.company_review = company_review;
+	public void setCompanyReview(String companyReview) {
+		this.companyReview = companyReview;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Review [review_id=" + review_id + ", item_id=" + item_id + ",user_id=" + user_id + ", user_rating=" + user_rating
-				+ ", user_difficulty_rating=" + user_difficulty_rating + ", user_review=" + user_review
-				+ ", company_rating=" + company_rating + ", company_difficulty_rating=" + company_difficulty_rating
-				+ ", company_review=" + company_review + "]";
+		return "Review [review_id=" + review_id + ", item_id=" + item_id + ",user_id=" + user_id + ", userRating=" + userRating
+				+ ", userDifficultyRating=" + userDifficultyRating + ", userReview=" + userReview
+				+ ", companyRating=" + companyRating + ", companyDifficultyRating=" + companyDifficultyRating
+				+ ", companyReview=" + companyReview + "]";
 	}
 	
 	

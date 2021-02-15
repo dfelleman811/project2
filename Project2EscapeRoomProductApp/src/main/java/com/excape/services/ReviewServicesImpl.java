@@ -31,7 +31,7 @@ public class ReviewServicesImpl implements ReviewServices {
 
 	@Override
 	public List<Review> getReviewsByDifficulty(int userDiffRating) {
-		return rr.findByUserDifficulty(userDiffRating);
+		return rr.findByUserDifficultyRating(userDiffRating);
 	}
 
 	@Override

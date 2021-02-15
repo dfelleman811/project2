@@ -1,5 +1,6 @@
 package com.excape.beans;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -16,8 +17,8 @@ public class Invoice {
 	
 	@Id
 	@Column(name = "transaction_id", updatable = false)
-	@GeneratedValue(generator = "transactions_transaction_id_seq", strategy = GenerationType.SEQUENCE)
-	@SequenceGenerator(name = "transactions_transaction_id_seq", sequenceName = "transactions_transaction_id_seq")
+	@GeneratedValue(generator = "invoices_transaction_id_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "invoices_transaction_id_seq", sequenceName = "invoices_transaction_id_seq", allocationSize = 1)
 	private int transaction_id;
 	
 	private int item_id;
@@ -32,7 +33,7 @@ public class Invoice {
 	
 	private String item_description;
 	
-	private int retail_price;
+	private BigDecimal retail_price;
 	
 	private Date purchase_date;
 	
@@ -45,7 +46,7 @@ public class Invoice {
 
 
 	public Invoice(int item_id, int user_id, int item_quantity, String user_type, String item_name,
-			String item_description, int retail_price, Date purchase_date, Date delivery_date) {
+			String item_description, BigDecimal retail_price, Date purchase_date, Date delivery_date) {
 		super();
 		this.item_id = item_id;
 		this.user_id = user_id;
@@ -60,7 +61,7 @@ public class Invoice {
 
 
 	public Invoice(int transaction_id, int item_id, int user_id, int item_quantity, String user_type, String item_name,
-			String item_description, int retail_price, Date purchase_date, Date delivery_date) {
+			String item_description, BigDecimal retail_price, Date purchase_date, Date delivery_date) {
 		super();
 		this.transaction_id = transaction_id;
 		this.item_id = item_id;
@@ -145,12 +146,12 @@ public class Invoice {
 	}
 
 
-	public int getRetail_price() {
+	public BigDecimal getRetail_price() {
 		return retail_price;
 	}
 
 
-	public void setRetail_price(int retail_price) {
+	public void setRetail_price(BigDecimal retail_price) {
 		this.retail_price = retail_price;
 	}
 

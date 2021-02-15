@@ -21,6 +21,12 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	@Override
+	public User getUser(String email) {
+		return ur.findByEmail(email);
+	}
+	
+	
+	@Override
 	public List<User> getAllUsers(){
 		return (List<User>) ur.findAll();
 	}
@@ -50,6 +56,7 @@ public class UserServiceImpl implements UserService{
 		ur.delete(ur.findById(id).get());
 		return true;
 	}
+
 	
 	
 
