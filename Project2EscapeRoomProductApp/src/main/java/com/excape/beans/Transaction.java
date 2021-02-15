@@ -21,8 +21,8 @@ public class Transaction {
 	
 	@Id
 	@Column(name = "transaction_id", updatable = false)
-	@GeneratedValue(generator = "transactions_transaction_id_seq", strategy = GenerationType.SEQUENCE)
-	@SequenceGenerator(name = "transactions_transaction_id_seq", sequenceName = "transactions_transaction_id_seq", allocationSize = 1)
+//	@GeneratedValue(generator = "transactions_transaction_id_seq", strategy = GenerationType.SEQUENCE)
+//	@SequenceGenerator(name = "transactions_transaction_id_seq", sequenceName = "transactions_transaction_id_seq", allocationSize = 1)
 	private int transaction_id;
 	
 	private Date date;

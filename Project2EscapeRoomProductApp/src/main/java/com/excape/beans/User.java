@@ -20,19 +20,24 @@ public class User {
 	@SequenceGenerator(name = "users_user_id_seq", sequenceName = "users_user_id_seq", allocationSize = 1)
 	private int userId;
 	
+	@Column(name = "first_name")
 	private String firstName;
 	
+	@Column(name = "last_name")
 	private String lastName;
 	
+	@Column(name = "business_name")
 	private String businessName;
 	
 	private String email;
 	
 	private BigDecimal phone;
 	
-	private String address_1;
+	@Column(name = "address_1")
+	private String address1;
 	
-	private String address_2;
+	@Column(name = "address_2")
+	private String address2;
 	
 	private String city;
 	
@@ -42,44 +47,48 @@ public class User {
 	
 	private int zip;
 	
+	private String password;
+	
 	
 	public User() {
 		super();
 	}
 
 
-	public User(String first_name, String last_name, String business_name, String email, BigDecimal phone,
-			String address_1, String address_2, String city, String state, String country, int zip) {
+	public User(String firstName, String lastName, String businessName, String email, BigDecimal phone,
+			String address1, String address2, String city, String state, String country, int zip, String password) {
 		super();
-		this.firstName = first_name;
-		this.lastName = last_name;
-		this.businessName = business_name;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.businessName = businessName;
 		this.email = email;
 		this.phone = phone;
-		this.address_1 = address_1;
-		this.address_2 = address_2;
+		this.address1 = address1;
+		this.address2 = address2;
 		this.city = city;
 		this.state = state;
 		this.country = country;
 		this.zip = zip;
+		this.password = password;
 	}
 
 
-	public User(int user_id, String first_name, String last_name, String business_name, String email, BigDecimal phone,
-			String address_1, String address_2, String city, String state, String country, int zip) {
+	public User(int user_id, String firstName, String lastName, String businessName, String email, BigDecimal phone,
+			String address1, String address2, String city, String state, String country, int zip, String password) {
 		super();
 		this.userId = user_id;
-		this.firstName = first_name;
-		this.lastName = last_name;
-		this.businessName = business_name;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.businessName = businessName;
 		this.email = email;
 		this.phone = phone;
-		this.address_1 = address_1;
-		this.address_2 = address_2;
+		this.address1 = address1;
+		this.address2 = address2;
 		this.city = city;
 		this.state = state;
 		this.country = country;
 		this.zip = zip;
+		this.password = password;
 	}
 
 
@@ -93,33 +102,33 @@ public class User {
 	}
 
 
-	public String getFirst_name() {
+	public String getFirstName() {
 		return firstName;
 	}
 
 
-	public void setFirst_name(String first_name) {
-		this.firstName = first_name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 
-	public String getLast_name() {
+	public String getLastName() {
 		return lastName;
 	}
 
 
-	public void setLast_name(String last_name) {
-		this.lastName = last_name;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 
-	public String getBusiness_name() {
+	public String getBusinessName() {
 		return businessName;
 	}
 
 
-	public void setBusiness_name(String business_name) {
-		this.businessName = business_name;
+	public void setBusinessName(String businessName) {
+		this.businessName = businessName;
 	}
 
 
@@ -143,23 +152,23 @@ public class User {
 	}
 
 
-	public String getAddress_1() {
-		return address_1;
+	public String getAddress1() {
+		return address1;
 	}
 
 
-	public void setAddress_1(String address_1) {
-		this.address_1 = address_1;
+	public void setAddress1(String address1) {
+		this.address1 = address1;
 	}
 
 
-	public String getAddress_2() {
-		return address_2;
+	public String getAddress2() {
+		return address2;
 	}
 
 
-	public void setAddress_2(String address_2) {
-		this.address_2 = address_2;
+	public void setAddress2(String address2) {
+		this.address2 = address2;
 	}
 
 
@@ -201,14 +210,21 @@ public class User {
 	public void setZip(int zip) {
 		this.zip = zip;
 	}
+	
+	public String getPassword() {
+		return this.password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 
 	@Override
 	public String toString() {
-		return "Users [user_id=" + userId + ", first_name=" + firstName + ", last_name=" + lastName
-				+ ", business_name=" + businessName + ", email=" + email + ", phone=" + phone + ", address_1="
-				+ address_1 + ", address_2=" + address_2 + ", city=" + city + ", state=" + state + ", country="
-				+ country + ", zip=" + zip + "]";
+		return "Users [user_id=" + userId + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", businessName=" + businessName + ", email=" + email + ", phone=" + phone + ", address_1="
+				+ address1 + ", address2=" + address2 + ", city=" + city + ", state=" + state + ", country="
+				+ country + ", zip=" + zip + ", password=" + password + "]";
 	}
 	
 	

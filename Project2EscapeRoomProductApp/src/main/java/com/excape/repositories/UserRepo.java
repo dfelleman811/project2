@@ -12,4 +12,5 @@ public interface UserRepo extends CrudRepository<User,Integer>{
 
 	List<User> findByLastNameIgnoreCase(String lastName);
 	List<User> findByBusinessNameIgnoreCase(String businessName);
+	User findByEmail(String email);
 }
