@@ -11,5 +11,5 @@ import com.excape.beans.Review;
 public interface ReviewRepo extends CrudRepository<Review, Integer> {
 
 	public List<Review> findByUserRating(int userRating);
-	public List<Review> findByUserDifficulty(int userDiffRating);
+	public List<Review> findByUserDifficultyRating(int userDifficultyRating);
 }
