@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excape - Escape Room Supplies</title>
 
+    <link rel="icon" type="img/png" href="img/favicon.png">
+
     <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
@@ -80,4 +82,37 @@
     <!-- Bootstrap JS -->
     
 </body>
+
+<script>
+    // Function to login - collect user input, verify against DB, and send to index.
+
+    function login() {
+
+        // Grab user input from username and password
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        // set up AJAX call to make sure password is correct
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.open("GET", `http://localhost:8080/usersByEmail/${username}`, true);
+
+        xhttp.send();
+
+        xhttp.onreadystatechange = function() {
+
+            if (this.readyState == 4 && this.status == 200) {
+                // save response text into Object
+                let user = JSON.parse(this.responseText)
+                console.log(user);
+
+                if (password == user.password) {
+                    window.location.assign("index.html");
+                }
+            }
+        }
+
+    }
+
+</script>
 </html>

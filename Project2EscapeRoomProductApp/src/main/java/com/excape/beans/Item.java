@@ -27,7 +27,7 @@ public class Item {
 	private String description;
 	
 	@Column(name = "weight_oz")
-	private String weight_oz;
+	private BigDecimal weight_oz;
 	
 	@Column(name = "dimensions_in")
 	private String dimensions_in;
@@ -59,8 +59,8 @@ public class Item {
 	}
 
 	// Contructor - no ID
-	public Item(String name, String description, String weight_oz, String dimensions_in, int num_stocked,
-			int num_ordered, double time_to_solve_mins, String type, java.math.BigDecimal retail_price, int vendor_id) {
+	public Item(String name, String description, BigDecimal weight_oz, String dimensions_in, int num_stocked,
+			int num_ordered, double time_to_solve_mins, String type, BigDecimal retail_price, int vendor_id) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -75,8 +75,8 @@ public class Item {
 	}
 
 	// Fully parameterized constructor
-	public Item(int item_id, String name, String description, String weight_oz, String dimensions_in, int num_stocked,
-			int num_ordered, double time_to_solve_mins, String type, java.math.BigDecimal retail_price, int vendor_id) {
+	public Item(int item_id, String name, String description, BigDecimal weight_oz, String dimensions_in, int num_stocked,
+			int num_ordered, double time_to_solve_mins, String type, BigDecimal retail_price, int vendor_id) {
 		super();
 		this.item_id = item_id;
 		this.name = name;
@@ -115,11 +115,11 @@ public class Item {
 		this.description = description;
 	}
 
-	public String getWeight_oz() {
+	public BigDecimal getWeight_oz() {
 		return weight_oz;
 	}
 
-	public void setWeight_oz(String weight_oz) {
+	public void setWeight_oz(BigDecimal weight_oz) {
 		this.weight_oz = weight_oz;
 	}
 
@@ -163,11 +163,11 @@ public class Item {
 		this.type = type;
 	}
 
-	public java.math.BigDecimal getRetail_price() {
+	public BigDecimal getRetail_price() {
 		return retail_price;
 	}
 
-	public void setRetail_price(java.math.BigDecimal retail_price) {
+	public void setRetail_price(BigDecimal retail_price) {
 		this.retail_price = retail_price;
 	}
 

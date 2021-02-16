@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excape - Escape Room Supplies</title>
 
+    <link rel="icon" type="img/png" href="img/favicon.png">
+
     <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
@@ -146,6 +148,9 @@
                 </div>
             </div>
             <br>
+                <label for="email" class="sr-only">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Email" required>
+            <br>
                 <label for="username" class="sr-only">Username</label>
                 <input type="text" id="username" class="form-control" placeholder="Username" required>
             <br>
@@ -169,4 +174,55 @@
     <!-- Bootstrap JS -->
     
 </body>
+
+<script>
+// Function to register user (persist to database) - collect input -> save to Object -> stringify -> send to server
+
+function register() {
+
+    let fName = document.getElementById("firstname").value;
+    let lName = document.getElementById("lastname").value;
+    let bName = document.getElementById("business").value;
+    let a1 = document.getElementById("address1").value;
+    let a2 = document.getElementById('address2').value;
+    let c = document.getElementById('city').value;
+    let s = document.getElementById('state').value;
+    let z = document.getElementById('zip').value;
+    let e = document.getElementById('email').value
+    let uname = document.getElementById('username').value;
+    let pword = document.getElementById('password').value;
+
+    let newUser = {
+        firstName : fName,
+        lastName : lName,
+        businessName : bName,
+        address1 : a1,
+        address2 : a2,
+        city : c,
+        state : s,
+        zip : z,
+        username : uname,
+        password : pword
+    }
+
+    console.log(newUser);
+
+    // AJAX Call
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.open("POST", "http://localhost:8080/users", true);
+
+    xhttp.send(JSON.stringify(newUser));
+
+    xhttp.onreadystatechange = function() {
+
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+        }
+    }
+
+
+}
+
+</script>
 </html>

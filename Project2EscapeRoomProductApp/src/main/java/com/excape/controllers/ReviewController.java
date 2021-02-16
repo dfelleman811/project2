@@ -3,6 +3,7 @@ package com.excape.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import com.excape.beans.Review;
 import com.excape.services.ReviewServices;
 
 @RestController
+@CrossOrigin
 public class ReviewController {
 	
 	@Autowired
@@ -29,19 +31,19 @@ public class ReviewController {
 	}
 	
 	
-	@GetMapping(value = "/reviews/{id}", produces = "application/json")
+	@GetMapping(value = "/reviewsByItem/{id}", produces = "application/json")
 	public List<Review> getReviewsByItem(@PathVariable("id") int itemId) { 
 		return rs.getReviewsByItem(itemId);
 	}
 	
 	
-	@GetMapping(value = "/reviews/{id}", produces = "application/json")
+	@GetMapping(value = "/reviewsByRating/{id}", produces = "application/json")
 	public List<Review> getReviewsByRating(@PathVariable("id") int userRating) {
 		return rs.getReviewsByRating(userRating);
 	}
 	
 	
-	@GetMapping(value = "/reviews/{id}", produces = "application/json")
+	@GetMapping(value = "/reviewsByDifficulty/{id}", produces = "application/json")
 	public List<Review> getReviewsByDifficulty(@PathVariable("id") int userDiffRating) {
 		return rs.getReviewsByRating(userDiffRating);
 	}
