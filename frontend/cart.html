@@ -46,7 +46,7 @@
                         <a class="nav-link" href="cart.html">Cart</a>
                     </li>
                     <li class="nav-item d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </li>
                 </ul>
@@ -81,6 +81,24 @@
 </body>
 
 <script>
-    
+    function search() {
+
+        // Collect input from search field
+        let searchInput = document.getElementById("search").value;
+
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.open("GET", `http://localhost:8080/items/search?name=${searchInput}`, true);
+
+        xhttp.send();
+
+        xhttp.onreadystatechange = function() {
+
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.response);
+            }
+        }
+
+    }
 </script>
 </html>
