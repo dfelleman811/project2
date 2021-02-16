@@ -27,7 +27,7 @@ public class UserController {
 	@Autowired
 	private UserService us;
 	
-	//@CrossOrigin(origins = "http://localhost:8080")
+	
 	@RequestMapping(method = RequestMethod.POST, value = "/users", consumes="application/json", produces="application/json")
 	public @ResponseBody User addUser(@RequestBody User u) {
 		return us.addUser(u);
@@ -41,6 +41,7 @@ public class UserController {
 
 	@GetMapping(value ="/usersByEmail/{email}", produces = "application/json")
 	public User getUserByEmail(@PathVariable("email") String email) {
+		System.out.println(us.getUser(email));
 		return us.getUser(email);
 	}
 	

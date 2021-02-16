@@ -92,6 +92,7 @@
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
         console.log(username, password);
+        console.log(`http://localhost:8080/usersByEmail/${username}`);
         // set up AJAX call to make sure password is correct
         let xhttp = new XMLHttpRequest();
 
@@ -107,6 +108,7 @@
                 console.log(user);
 
                 if (password == user.password) {
+                    
                     // if user is employee
                     if (user.employee == 1) {
                         // send to employee dashboard/portal
@@ -114,7 +116,7 @@
                     }
                     else {
                         // send to shop landing page
-                        window.location.assign("index.html");
+                       window.location.assign("index.html");
                     }
                 }
             }

@@ -47,7 +47,11 @@ public class User {
 	
 	private int zip;
 	
+	private String username;
+	
 	private String password;
+	
+	private int employee;
 	
 	
 	public User() {
@@ -56,7 +60,7 @@ public class User {
 
 
 	public User(String firstName, String lastName, String businessName, String email, BigDecimal phone,
-			String address1, String address2, String city, String state, String country, int zip, String password) {
+			String address1, String address2, String city, String state, String country, int zip, String username, String password, int employee) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -69,12 +73,14 @@ public class User {
 		this.state = state;
 		this.country = country;
 		this.zip = zip;
+		this.username = username;
 		this.password = password;
+		this.employee = employee;
 	}
 
 
 	public User(int user_id, String firstName, String lastName, String businessName, String email, BigDecimal phone,
-			String address1, String address2, String city, String state, String country, int zip, String password) {
+			String address1, String address2, String city, String state, String country, int zip, String username, String password, int employee) {
 		super();
 		this.userId = user_id;
 		this.firstName = firstName;
@@ -88,7 +94,9 @@ public class User {
 		this.state = state;
 		this.country = country;
 		this.zip = zip;
+		this.username = username;
 		this.password = password;
+		this.employee = employee;
 	}
 
 
@@ -211,11 +219,27 @@ public class User {
 		this.zip = zip;
 	}
 	
+	public String getUsername() {
+		return this.username;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
 	public String getPassword() {
 		return this.password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public int getEmployee() {
+		return this.employee;
+	}
+	
+	public void setEmployee(int employee) {
+		this.employee = employee;
 	}
 
 

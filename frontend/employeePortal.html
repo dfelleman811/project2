@@ -21,7 +21,7 @@
 
 </head>
 
-<body>
+<body onload="loadStats()">
 
     <!-- Header -->
     <nav class="navbar navbar-expand-md bg-light sticky-top py-2">
@@ -200,6 +200,30 @@
 </body>
 
 <script>
+    // Function to load stats
+
+    function loadStats() {
+
+        // Most Profitable
+
+        
+
+
+        // Most Popular
+        // we'll need to grab the items that appear most frequently in invoices
+
+
+        // Highest Revenue
+
+
+
+    }
+
+
+
+
+
+
     // Function to create a new item in inventory
 
     function submit() {
@@ -211,6 +235,8 @@
         let quantity = document.getElementById('quantity').value;
         let weight = document.getElementById('weight').value;
         let dims = document.getElementById('dimensions').value;
+        let newType = document.getElementById('type').value;
+        let vid = document.getElementById('vendor').value;
 
         // make object
         let newItem = {
@@ -219,7 +245,7 @@
             weight_oz : weight,
             dimensions_in : dims,
             num_stocked : quantity,
-            retail_price : (cost * 1.5),
+            type : newType,
             vendor_id : vid
         }
 
@@ -236,6 +262,7 @@
 
             if (this.readyState == 4 && this.status == 200) {
                 console.log(this.responseText);
+                // modal to state that it was successfully updated
             }
         }
     }
