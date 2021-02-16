@@ -43,6 +43,12 @@ hr{
     padding-bottom: 2rem;
 }
 
+.links a{
+    color: rgb(0, 48, 6);
+    font-size:larger;
+    font-weight:500;
+}
+
 h6{
     padding-top:10px;
 }
