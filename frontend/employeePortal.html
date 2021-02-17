@@ -21,7 +21,7 @@
 
 </head>
 
-<body>
+<body onload="loadStats()">
 
     <!-- Header -->
     <nav class="navbar navbar-expand-md bg-light sticky-top py-2">
@@ -48,7 +48,7 @@
                         <a class="nav-link" href="cart.html">Cart</a>
                     </li>
                     <li class="nav-item d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </li>
                 </ul>
@@ -200,6 +200,92 @@
 </body>
 
 <script>
-    
+    // Function to load stats
+
+    function loadStats() {
+
+        // Most Profitable
+
+        
+
+
+        // Most Popular
+        // we'll need to grab the items that appear most frequently in invoices
+
+
+        // Highest Revenue
+
+
+
+    }
+
+
+
+
+
+
+    // Function to create a new item in inventory
+
+    function submit() {
+
+        // collect input
+        let newName = document.getElementById('name').value;
+        let newDesc = document.getElementById('description').value;
+        let cost = document.getElementById('costPerUnit').value;
+        let quantity = document.getElementById('quantity').value;
+        let weight = document.getElementById('weight').value;
+        let dims = document.getElementById('dimensions').value;
+        let newType = document.getElementById('type').value;
+        let vid = document.getElementById('vendor').value;
+
+        // make object
+        let newItem = {
+            name : newName,
+            description : newDesc,
+            weight_oz : weight,
+            dimensions_in : dims,
+            num_stocked : quantity,
+            type : newType,
+            vendor_id : vid
+        }
+
+        // AJAX call to server to add new inventory item
+        let xhttp2 = new XMLHttpRequest();
+
+        xhttp2.open("POST", "http://localhost:8080/items", true);
+
+        xhttp2.setRequestHeader("Content-Type", "application/json");
+
+        xhttp2.send(JSON.stringify(newItem));
+
+        xhttp2.onreadystatechange = function() {
+
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+                // modal to state that it was successfully updated
+            }
+        }
+    }
+
+
+    function search() {
+
+        // Collect input from search field
+        let searchInput = document.getElementById("search").value;
+
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.open("GET", `http://localhost:8080/items/search?name=${searchInput}`, true);
+
+        xhttp.send();
+
+        xhttp.onreadystatechange = function() {
+
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.response);
+            }
+        }
+
+    }
 </script>
 </html>

@@ -18,7 +18,9 @@
     <link rel="stylesheet" href="style.css"/>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
+    <mvc:cors>
+		<mvc:mapping path="/**" />
+	</mvc:cors>
 </head>
 <body>
 <div class="container-fluid h-100">
@@ -178,51 +180,78 @@
 <script>
 // Function to register user (persist to database) - collect input -> save to Object -> stringify -> send to server
 
-function register() {
+    function register() {
 
-    let fName = document.getElementById("firstname").value;
-    let lName = document.getElementById("lastname").value;
-    let bName = document.getElementById("business").value;
-    let a1 = document.getElementById("address1").value;
-    let a2 = document.getElementById('address2').value;
-    let c = document.getElementById('city').value;
-    let s = document.getElementById('state').value;
-    let z = document.getElementById('zip').value;
-    let e = document.getElementById('email').value
-    let uname = document.getElementById('username').value;
-    let pword = document.getElementById('password').value;
+        let fName = document.getElementById("firstname").value;
+        let lName = document.getElementById("lastname").value;
+        let bName = document.getElementById("business").value;
+        let a1 = document.getElementById("address1").value;
+        let a2 = document.getElementById('address2').value;
+        let c = document.getElementById('city').value;
+        let s = document.getElementById('state').value;
+        let z = document.getElementById('zip').value;
+        let e = document.getElementById('email').value;
+        let uname = document.getElementById('username').value;
+        let pword = document.getElementById('password').value;
 
-    let newUser = {
-        firstName : fName,
-        lastName : lName,
-        businessName : bName,
-        address1 : a1,
-        address2 : a2,
-        city : c,
-        state : s,
-        zip : z,
-        username : uname,
-        password : pword
-    }
-
-    console.log(newUser);
-
-    // AJAX Call
-    let xhttp = new XMLHttpRequest();
-
-    xhttp.open("POST", "http://localhost:8080/users", true);
-
-    xhttp.send(JSON.stringify(newUser));
-
-    xhttp.onreadystatechange = function() {
-
-        if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
+        let newUser = {
+            firstName : fName,
+            lastName : lName,
+            businessName : bName,
+            email : e,
+            address1 : a1,
+            address2 : a2,
+            city : c,
+            state : s,
+            zip : z,
+            username : uname,
+            password : pword
         }
+
+        console.log(newUser);
+
+        // AJAX Call
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.open("POST", "http://localhost:8080/users", true);
+        console.log(JSON.stringify(newUser));
+
+        xhttp.setRequestHeader("Content-Type", "application/json");
+
+        xhttp.send(JSON.stringify(newUser));
+        
+
+        xhttp.onreadystatechange = function() {
+
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("Registered new user.")
+                console.log(this.responseText);
+                // modal? or pop up to let them know that they've succesfully registered?
+            }
+        }
+    
+
+
     }
 
+    function search() {
 
-}
+        // Collect input from search field
+        let searchInput = document.getElementById("search").value;
 
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.open("GET", `http://localhost:8080/items/search?name=${searchInput}`, true);
+
+        xhttp.send();
+
+        xhttp.onreadystatechange = function() {
+
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.response);
+            }
+        }
+
+    }
 </script>
 </html>

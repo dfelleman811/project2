@@ -47,7 +47,7 @@
                         <a class="nav-link" href="cart.html">Cart</a>
                     </li>
                     <li class="nav-item d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit" onclick="search()">Search</button>
                     </li>
                 </ul>
@@ -91,7 +91,8 @@
         // Grab user input from username and password
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
-
+        console.log(username, password);
+        console.log(`http://localhost:8080/usersByEmail/${username}`);
         // set up AJAX call to make sure password is correct
         let xhttp = new XMLHttpRequest();
 
@@ -103,16 +104,44 @@
 
             if (this.readyState == 4 && this.status == 200) {
                 // save response text into Object
-                let user = JSON.parse(this.responseText)
+                let user = JSON.parse(this.responseText);
                 console.log(user);
 
                 if (password == user.password) {
-                    window.location.assign("index.html");
+                    
+                    // if user is employee
+                    if (user.employee == 1) {
+                        // send to employee dashboard/portal
+                        window.location.assign("employeePortal.html");
+                    }
+                    else {
+                        // send to shop landing page
+                       window.location.assign("index.html");
+                    }
                 }
             }
         }
 
     }
 
+    function search() {
+
+        // Collect input from search field
+        let searchInput = document.getElementById("search").value;
+
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.open("GET", `http://localhost:8080/items/search?name=${searchInput}`, true);
+
+        xhttp.send();
+
+        xhttp.onreadystatechange = function() {
+
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.response);
+            }
+        }
+
+    }
 </script>
 </html>
