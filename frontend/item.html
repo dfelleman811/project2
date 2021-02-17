@@ -76,6 +76,10 @@
             <p id="companyRating"></p>
             <p id="companyDifficultyRating"></p>
         </div>
+
+        <div class="container text-center">
+            <button class="btn btn-success" onclick="addToCart()">Add to Cart</button>
+        </div>
     
 </body>
 
@@ -111,6 +115,7 @@
                 document.getElementById("itemSize").innerHTML = "Dimensions: " + item.dimensions_in + " (inches)";
                 document.getElementById("itemWeight").innerHTML = "Weight: " + item.weight_oz + " ounces";
                 document.getElementById("itemPrice").innerHTML = "Price: $" + item.retail_price;
+                document.getElementById("itemPrice").value = item.retail_price;
             }
         }
     }
@@ -134,6 +139,22 @@
                 document.getElementById("companyDifficultyRating").innerHTML = "Difficulty Rating: " + review.company_difficulty_rating;
             }
         }
+    }
+
+    function addToCart(){
+        let item = {
+            storageId: (localStorage.length),
+            itemId: urlParams.get('id'),
+            itemDesc: document.getElementById("itemDesc").innerHTML,
+            itemName: document.getElementById("itemName").innerHTML,
+            itemPrice: document.getElementById("itemPrice").value
+        }
+
+        let itemString = JSON.stringify(item);
+
+        localStorage.setItem(item.storageId, itemString)
+
+        window.location.href = "cart.html";
     }
 
 </script>
