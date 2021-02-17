@@ -86,7 +86,25 @@
 </body>
 
 <script>
+    function search() {
 
+        // Collect input from search field
+        let searchInput = document.getElementById("search").value;
+
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.open("GET", `http://localhost:8080/items/search?name=${searchInput}`, true);
+
+        xhttp.send();
+
+        xhttp.onreadystatechange = function() {
+
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.response);
+            }
+        }
+
+    }
 
     console.log(localStorage);
 
@@ -110,6 +128,5 @@
             document.getElementById("totalPrice").innerHTML = "Your Total: $" + totalPriceCalc;
         }
     }
-    
 </script>
 </html>
