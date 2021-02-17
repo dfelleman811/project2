@@ -211,7 +211,50 @@
 
         // Most Popular
         // we'll need to grab the items that appear most frequently in invoices
+        let xhttp = new XMLHttpRequest();
 
+        xhttp.open("GET", "http://localhost:8080/itemsolap", true);
+
+        xhttp.send();
+
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                let itemList = JSON.parse(this.responseText);
+                console.log(itemList);
+
+                // print to page
+                // get element by id
+                let popTable = document.getElementById('mostPopular');
+
+                for (item in itemList) {
+                    let id = itemList[item].itemId;
+                    let getItem = new XMLHttpRequest();
+                    getItem.open("GET", `http://localhost:8080/items/${id}`, true);
+                    getItem.send();
+                    getItem.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            let i = JSON.parse(this.responseText);
+                            console.log(i);
+                            // create new table row
+                            let newRow = document.createElement('tr');
+                            // create table data
+                            let td1 = document.createElement('td');
+                            td1.innerHTML = i.item_id;
+                            newRow.append(td1);
+
+                            let td2 = document.createElement('td');
+                            td2.innerHTML = i.name;
+                            newRow.append(td2);
+
+                            let td3 = document.createElement('td');
+                            td3.innerHTML = itemList[item].totalQuantitySold;
+                            newRow.append(td3)
+                            popTable.append(newRow);
+                        }
+                    }
+                }
+            }
+        }
 
         // Highest Revenue
 
