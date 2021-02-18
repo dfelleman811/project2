@@ -20,4 +20,16 @@ public class EmployeeServicesImpl implements EmployeeServices {
 		
 	}
 
+	@Override
+	public List<ItemOlap> getRevenue() {
+		return ior.findByOrderByTotalRetailEarningsDesc();
+	}
+
+	@Override
+	public List<ItemOlap> getProfit() {
+		return ior.findByOrderByTotalProfitMadeDesc();
+	}
+	
+	
+
 }

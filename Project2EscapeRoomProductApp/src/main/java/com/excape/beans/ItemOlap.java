@@ -22,18 +22,30 @@ public class ItemOlap {
 	private BigDecimal totalRetailEarnings;
 	
 	@Column(name = "total_profit_made")
-	private BigDecimal totalProfit;
+	private BigDecimal totalProfitMade;
+	
+	@Column(name = "cost_per_unit")
+	private BigDecimal costPerUnit;
+	
+	@Column(name = "retail_per_unit")
+	private BigDecimal retailPerUnit;
+	
+	@Column(name = "name")
+	private String name;
 
 	public ItemOlap() {
 		super();
 	}
 
-	public ItemOlap(int itemId, int totalQuantitySold, BigDecimal totalRetailEarnings, BigDecimal totalProfit) {
+	public ItemOlap(int itemId, int totalQuantitySold, BigDecimal totalRetailEarnings, BigDecimal totalProfitMade, BigDecimal costPerUnit, BigDecimal retailPerUnit, String name) {
 		super();
 		this.itemId = itemId;
 		this.totalQuantitySold = totalQuantitySold;
 		this.totalRetailEarnings = totalRetailEarnings;
-		this.totalProfit = totalProfit;
+		this.totalProfitMade = totalProfitMade;
+		this.costPerUnit = costPerUnit;
+		this.retailPerUnit = retailPerUnit;
+		this.name = name;
 	}
 
 	public int getItemId() {
@@ -60,18 +72,44 @@ public class ItemOlap {
 		this.totalRetailEarnings = totalRetailEarnings;
 	}
 
-	public BigDecimal getTotalProfit() {
-		return totalProfit;
+	public BigDecimal getTotalProfitMade() {
+		return totalProfitMade;
 	}
 
-	public void setTotalProfit(BigDecimal totalProfit) {
-		this.totalProfit = totalProfit;
+	public void setTotalProfitMade(BigDecimal totalProfitMade) {
+		this.totalProfitMade = totalProfitMade;
 	}
+	
+	public BigDecimal getCostPerUnit() {
+		return this.costPerUnit;
+	}
+	
+	public void setCostPerUnit(BigDecimal costPerUnit) {
+		this.costPerUnit = costPerUnit;
+	}
+	
+	public BigDecimal getRetailPerUnit() {
+		return this.retailPerUnit;
+	}
+	
+	public void setRetailPerUnit(BigDecimal retailPerUnit) {
+		this.retailPerUnit = retailPerUnit;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 
 	@Override
 	public String toString() {
 		return "ItemOlap [itemId=" + itemId + ", totalQuantitySold=" + totalQuantitySold + ", totalRetailEarnings="
-				+ totalRetailEarnings + ", totalProfit=" + totalProfit + "]";
+				+ totalRetailEarnings + ", totalProfit=" + totalProfitMade + ", costPerUnit=" + costPerUnit + 
+				", retailPerUnit=" + retailPerUnit + ", name=" + name + "]";
 	}
 	
 	
