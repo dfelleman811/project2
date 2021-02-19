@@ -1,26 +1,26 @@
 package com.excape.beans;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
+@IdClass(InvoiceId.class)
 @Table(name = "invoices")
-public class Invoice {
+public class Invoice{
 	
 	@Id
-	@Column(name = "transaction_id", updatable = false)
-	@GeneratedValue(generator = "invoices_transaction_id_seq", strategy = GenerationType.SEQUENCE)
-	@SequenceGenerator(name = "invoices_transaction_id_seq", sequenceName = "invoices_transaction_id_seq", allocationSize = 1)
+//	@Column(name = "transaction_id", updatable = false)
+//	@GeneratedValue(generator = "invoices_transaction_id_seq", strategy = GenerationType.SEQUENCE)
+//	@SequenceGenerator(name = "invoices_transaction_id_seq", sequenceName = "invoices_transaction_id_seq", allocationSize = 1)
 	private int transaction_id;
 	
+	@Id
 	private int item_id;
 	
 	private int user_id;

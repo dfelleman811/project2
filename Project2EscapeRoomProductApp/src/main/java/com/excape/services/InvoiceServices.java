@@ -16,5 +16,7 @@ public interface InvoiceServices {
 	public Invoice updateInvoice(Invoice invChange);
 	
 	public boolean deleteInvoice(int transaction_id);
+	
+	public int incrementSequence();
 
 }
