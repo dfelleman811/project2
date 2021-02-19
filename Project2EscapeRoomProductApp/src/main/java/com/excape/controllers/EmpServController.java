@@ -17,9 +17,18 @@ public class EmpServController {
 	@Autowired
 	private EmployeeServices es;
 	
-	@GetMapping(value = "/itemsolap", produces = "application/json")
+	@GetMapping(value = "/itemsolapQuantity", produces = "application/json")
 	public List<ItemOlap> getMostPurchased() {
 		return es.getStats();
 	}
 
+	@GetMapping(value = "/itemsolapRevenue", produces = "application/json")
+	public List<ItemOlap> getMostRevenue() {
+		return es.getRevenue();
+	}
+	
+	@GetMapping(value = "/itemsolapProfit", produces = "application/json")
+	public List<ItemOlap> getMostProfit() {
+		return es.getProfit();
+	}
 }

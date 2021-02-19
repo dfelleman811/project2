@@ -20,9 +20,9 @@ public interface EmployeeServices {
 	public List<ItemOlap> getStats();
 	
 	
-	// Most popular items
-	
-	
 	// Highest Revenue
-
+	public List<ItemOlap> getRevenue();
+	
+	// Highest Profit
+	public List<ItemOlap> getProfit();
 }
