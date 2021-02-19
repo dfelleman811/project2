@@ -205,7 +205,45 @@
     function loadStats() {
 
         // Most Profitable
+        let phttp = new XMLHttpRequest();
+        phttp.open("GET", "http://localhost:8080/itemsolapProfit", true);
+        phttp.setRequestHeader("Content-Type", "application/json");
+        phttp.send();
+        phttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                let profitList = JSON.parse(this.responseText);
 
+                let profitTable = document.getElementById('mostProfitable');
+
+                for (profit in profitList) {
+                    
+                    let newRow = document.createElement('tr');
+
+                    // pull from object to populate row
+                    let td1 = document.createElement('td');
+                    td1.innerHTML = profitList[profit].itemId;
+                    newRow.append(td1);
+
+                    let td2 = document.createElement('td');
+                    td2.innerHTML = "name";
+                    newRow.append(td2);
+
+                    let td3 = document.createElement('td');
+                    td3.innerHTML = `$ ${profitList[profit].costPerUnit}`;
+                    newRow.append(td3);
+
+                    let td4 = document.createElement('td');
+                    td4.innerHTML = `$ ${profitList[profit].retailPerUnit}`;
+                    newRow.append(td4);
+
+                    let td5 = document.createElement('td');
+                    td5.innerHTML = `$ ${profitList[profit].totalProfitMade}`;
+                    newRow.append(td5);
+                    
+                    profitTable.append(newRow);
+                }
+            }
+        }
         
 
 
@@ -213,7 +251,7 @@
         // we'll need to grab the items that appear most frequently in invoices
         let xhttp = new XMLHttpRequest();
 
-        xhttp.open("GET", "http://localhost:8080/itemsolap", true);
+        xhttp.open("GET", "http://localhost:8080/itemsolapQuantity", true);
 
         xhttp.send();
 
@@ -228,6 +266,7 @@
 
                 for (item in itemList) {
                     let id = itemList[item].itemId;
+                    let qty = itemList[item].totalQuantitySold;
                     let getItem = new XMLHttpRequest();
                     getItem.open("GET", `http://localhost:8080/items/${id}`, true);
                     getItem.send();
@@ -247,7 +286,7 @@
                             newRow.append(td2);
 
                             let td3 = document.createElement('td');
-                            td3.innerHTML = itemList[item].totalQuantitySold;
+                            td3.innerHTML = qty;
                             newRow.append(td3)
                             popTable.append(newRow);
                         }
@@ -257,7 +296,45 @@
         }
 
         // Highest Revenue
+        let rhttp = new XMLHttpRequest();
+        rhttp.open("GET", "http://localhost:8080/itemsolapRevenue", true);
+        rhttp.setRequestHeader("Content-Type", "application/json");
+        rhttp.send();
+        rhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                let revList = JSON.parse(this.responseText);
 
+                let revTable = document.getElementById("highestRevenue");
+
+                for (rev in revList) {
+                    //create a new row
+                    let newRow = document.createElement('tr');
+
+                    // pull from object to populate row
+                    let td1 = document.createElement('td');
+                    td1.innerHTML = revList[rev].itemId;
+                    newRow.append(td1);
+
+                    let td2 = document.createElement('td');
+                    td2.innerHTML = "name";
+                    newRow.append(td2);
+
+                    let td3 = document.createElement('td');
+                    td3.innerHTML = revList[rev].totalQuantitySold;
+                    newRow.append(td3);
+
+                    let td4 = document.createElement('td');
+                    td4.innerHTML = `$ ${revList[rev].retailPerUnit}`;
+                    newRow.append(td4);
+
+                    let td5 = document.createElement('td');
+                    td5.innerHTML = `$ ${revList[rev].totalRetailEarnings}`;
+                    newRow.append(td5);
+                    
+                    revTable.append(newRow);
+                }
+            }
+        }
 
 
     }

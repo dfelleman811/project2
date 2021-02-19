@@ -11,5 +11,9 @@ import com.excape.beans.ItemOlap;
 public interface ItemOlapRepo extends CrudRepository<ItemOlap, Integer> {
 	
 	public List<ItemOlap> findByOrderByTotalQuantitySoldDesc();
+	
+	public List<ItemOlap> findByOrderByTotalRetailEarningsDesc();
+	
+	public List<ItemOlap> findByOrderByTotalProfitMadeDesc();
 
 }
