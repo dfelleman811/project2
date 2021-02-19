@@ -78,6 +78,10 @@
         </div>
 
         <div class="container text-center">
+            <div class="container" style="margin:20px">
+                <label for=itemQuantity>Quantity: </label>
+                <input type=number id=itemQuantity name=itemQuantity value="1">
+            </div>
             <button class="btn btn-success" onclick="addToCart()">Add to Cart</button>
         </div>
     
@@ -142,17 +146,27 @@
     }
 
     function addToCart(){
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0');
+        let yyyy = today.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
+
         let item = {
-            storageId: (localStorage.length),
-            itemId: urlParams.get('id'),
-            itemDesc: document.getElementById("itemDesc").innerHTML,
-            itemName: document.getElementById("itemName").innerHTML,
-            itemPrice: document.getElementById("itemPrice").value
+            item_id: urlParams.get('id'),
+            item_description: document.getElementById("itemDesc").innerHTML,
+            item_name: document.getElementById("itemName").innerHTML,
+            retail_price: document.getElementById("itemPrice").value,
+            item_quantity: document.getElementById("itemQuantity").value,
+            purchase_date: today, 
+            delivery_date: today,
+            user_type: 'customer'
         }
 
         let itemString = JSON.stringify(item);
 
-        localStorage.setItem(item.storageId, itemString)
+        localStorage.setItem(localStorage.length, itemString)
 
         window.location.href = "cart.html";
     }

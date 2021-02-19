@@ -3,10 +3,13 @@ package com.excape.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Service;
 
 import com.excape.beans.Invoice;
 import com.excape.repositories.InvoiceRepo;
 
+@Service
 public class InvoiceServicesImpl implements InvoiceServices {
 
 	@Autowired
@@ -24,6 +27,11 @@ public class InvoiceServicesImpl implements InvoiceServices {
 		return invList;
 	}
 
+//	@Override
+//	public void addInvoice(Invoice inv) {
+//		//invr.customAdd(inv.getItem_id(), inv.getUser_id(), inv.getItem_quantity(), inv.getUser_type(), inv.getItem_name(), inv.getItem_description(), inv.getRetail_price(), inv.getPurchase_date(), inv.getDelivery_date());
+//	}
+	
 	@Override
 	public Invoice addInvoice(Invoice inv) {
 		return invr.save(inv);
@@ -45,5 +53,12 @@ public class InvoiceServicesImpl implements InvoiceServices {
 		}
 		
 	}
+	
+	@Override
+	public int incrementSequence() {
+		return invr.incrementSequence();
+	}
+	
+
 
 }

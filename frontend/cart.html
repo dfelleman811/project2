@@ -65,9 +65,10 @@
         <div class="container mt-5">
             <table id="cartItems" class="table">
                 <tr>
-                    <th>Name</td>
-                    <th>Description</td>
-                    <th>Price</td>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
                 </tr>
             </table>
         </div>
@@ -77,11 +78,10 @@
         <div class="container-fluid text-center" style="padding-top: 15px;">
             <p id="totalPrice" style="font-weight: 500; font-size:x-large; padding-top:15px"></p>
             <br>
-            <button class="btn btn-success" onclick="checkout()">Check Out</button>
+            <button class="btn btn-success" onclick="checkout()" style="margin:5px">Check Out</button>
+            <button class="btn btn-secondary" onclick="localStorage.clear(); window.location.reload()" style="margin:5px">Empty Cart</button>
         </div>
     </div>
-
-    <button class="btn btn-primary" onclick="localStorage.clear()">Clear Local Storage</button>
 
 </body>
 
@@ -117,15 +117,44 @@
             let cell1 = row.insertCell(0);
             let cell2 = row.insertCell(1);
             let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
             let itemString = localStorage.getItem(i);
             let item = JSON.parse(itemString);
 
-            cell1.innerHTML = item.itemName;
-            cell2.innerHTML = item.itemDesc;
-            cell3.innerHTML = item.itemPrice;
+            cell1.innerHTML = item.item_name;
+            cell2.innerHTML = item.item_description;
+            cell4.innerHTML = (item.retail_price * item.item_quantity).toFixed(2);
+            cell3.innerHTML = item.item_quantity;
 
-            totalPriceCalc += item.itemPrice;
-            document.getElementById("totalPrice").innerHTML = "Your Total: $" + totalPriceCalc;
+            totalPriceCalc += item.retail_price*item.item_quantity;
+            document.getElementById("totalPrice").innerHTML = "Your Total: $" + totalPriceCalc.toFixed(2);
+        }
+    }
+
+    function checkout(){
+
+        let itemArray = [];
+
+        for(i=0; i < localStorage.length; i++){
+            let itemString = localStorage.getItem(i)
+            let item = JSON.parse(itemString);
+            itemArray.push(item);
+        }
+
+
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.open("POST", "http://localhost:8080/invoices", true);
+        xhttp.setRequestHeader('Content-Type','application/json');
+
+        xhttp.send(JSON.stringify(itemArray));
+
+        xhttp.onreadystatechange = function () {
+            if(this.readyState == 4 && this.status == 200){
+                console.log(itemArray);
+                window.localStorage.clear();
+                window.location.href = 'orderconfirmation.html';
+            }
         }
     }
 </script>
