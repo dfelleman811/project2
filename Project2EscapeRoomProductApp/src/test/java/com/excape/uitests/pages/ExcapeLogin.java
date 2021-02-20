@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ExcapeLogin {
 	
-	// Chrome Driver
+	// Driver
 	public WebDriver driver;
 	
 	
@@ -18,7 +18,7 @@ public class ExcapeLogin {
 	@FindBy(id = "password")
 	public WebElement passwordInput;
 	
-	@FindBy(xpath = "/html/body/div/div/form/div/button")
+	@FindBy(id = "loginButton")
 	public WebElement loginButton;
 	
 	// Constructor to build page

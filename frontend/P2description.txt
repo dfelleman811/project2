@@ -1,0 +1,26 @@
+Excape
+Online Escape Room Puzzle Retail App
+2101 Java w/ETL - Project 2
+
+
+Excape's web application is an online retail store that sells Puzzles, Locks, and more items
+to Room Escape builders across the United States. Users can access the home page,
+which displays featured products, and categorizes products by their type. 
+An employee user has the added capability of an Employee Portal, where they can 
+add new products to the inventory as well as view aggregated details pertaining to sales. 
+
+Roles/Responsiblities (Ryan: Should this be different per person?)
+- Utilized AWS RDS service with PostgreSQL to persist data to OLTP Database instance.
+- Leveraged Spring Boot Framework and modules such as Spring Data, Spring MVC, and Spring ORM for RAD.
+- Constructed AJAX calls to send and receive asynchronous HTTP Requests and Responses (in JSON) to ReSTful API endpoints..
+- Designed and built interactive web pages using HTML, CSS, and JavaScript.
+- Implemented Bootstrap to format navigation bar, tables, and web page layout.
+- Coded JavaScript functions for dynamic DOM Manipulation.
+- Designed Cucumber, Selenium, and Spring tests following Test and Behavior Driven Development techniques.
+- Drafted and implemented ETL Testing with Talend to analyze business aspects.
+
+Environment/Technologies
+Spring Boot, Spring Data JPA, Spring Web MVC, SQL, Java, JavaScript, HTML, CSS, Bootstrap, Cucumber, Selenium, JUnit, Mockito
+
+Project Repository
+https://github.com/dfelleman811/project2

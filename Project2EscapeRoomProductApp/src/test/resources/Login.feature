@@ -10,4 +10,5 @@ Feature: User Logging In
 	Examples:
 	|	username					|	password	|				title				|
 	|	contact@escapecrowpeak.com	|	password	|	Excape - Escape Room Supplies	|
+	|	dftest@email.com			|	password	|	Excape - Employee Portal		|
 	
