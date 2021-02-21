@@ -18,19 +18,20 @@ public class Review {
 	@SequenceGenerator(name = "reviews_review_id_seq", sequenceName = "reviews_review_id_seq", allocationSize = 1)
 	private int review_id;
 	
-	private int item_id;
+	@Column(name="item_id")
+	private Integer itemId;
 	
-	private int user_id;
+	private Integer user_id;
 	
-	private int userRating;
+	private Integer userRating;
 	
-	private int userDifficultyRating;
+	private Integer userDifficultyRating;
 	
 	private String userReview;
 	
-	private int companyRating;
+	private Integer companyRating;
 	
-	private int companyDifficultyRating;
+	private Integer companyDifficultyRating;
 	
 	private String companyReview;
 
@@ -40,10 +41,10 @@ public class Review {
 	}
 
 
-	public Review(int item_id, int user_id, int userRating, int userDifficultyRating, String userReview, int companyRating,
-			int companyDifficultyRating, String companyReview) {
+	public Review(Integer item_id, Integer user_id, Integer userRating, Integer userDifficultyRating, String userReview, Integer companyRating,
+			Integer companyDifficultyRating, String companyReview) {
 		super();
-		this.item_id = item_id;
+		this.itemId = item_id;
 		this.user_id = user_id;
 		this.userRating = userRating;
 		this.userDifficultyRating = userDifficultyRating;
@@ -54,11 +55,11 @@ public class Review {
 	}
 
 
-	public Review(int review_id, int item_id, int user_id, int userRating, int userDifficultyRating, String userReview,
-			int companyRating, int companyDifficultyRating, String companyReview) {
+	public Review(int review_id, Integer item_id, Integer user_id, Integer userRating, Integer userDifficultyRating, String userReview,
+			Integer companyRating, Integer companyDifficultyRating, String companyReview) {
 		super();
 		this.review_id = review_id;
-		this.item_id = item_id;
+		this.itemId = item_id;
 		this.user_id = user_id;
 		this.userRating = userRating;
 		this.userDifficultyRating = userDifficultyRating;
@@ -79,39 +80,39 @@ public class Review {
 	}
 
 
-	public int getItem_id() {
-		return item_id;
+	public Integer getItem_id() {
+		return itemId;
 	}
 	
-	public int getUser_id() {
+	public Integer getUser_id() {
 		return user_id;
 	}
 
-	public void setUser_id(int user_id) {
+	public void setUser_id(Integer user_id) {
 		this.user_id = user_id;
 	}
 
-	public void setItem_id(int item_id) {
-		this.item_id = item_id;
+	public void setItem_id(Integer item_id) {
+		this.itemId = item_id;
 	}
 
 
-	public int getUserRating() {
+	public Integer getUserRating() {
 		return userRating;
 	}
 
 
-	public void setUserRating(int userRating) {
+	public void setUserRating(Integer userRating) {
 		this.userRating = userRating;
 	}
 
 
-	public int getUserDifficultyRating() {
+	public Integer getUserDifficultyRating() {
 		return userDifficultyRating;
 	}
 
 
-	public void setUserDifficultyRating(int userDifficultyRating) {
+	public void setUserDifficultyRating(Integer userDifficultyRating) {
 		this.userDifficultyRating = userDifficultyRating;
 	}
 
@@ -126,22 +127,22 @@ public class Review {
 	}
 
 
-	public int getCompanyRating() {
+	public Integer getCompanyRating() {
 		return companyRating;
 	}
 
 
-	public void setCompanyRating(int companyRating) {
+	public void setCompanyRating(Integer companyRating) {
 		this.companyRating = companyRating;
 	}
 
 
-	public int getCompanyDifficultyRating() {
+	public Integer getCompanyDifficultyRating() {
 		return companyDifficultyRating;
 	}
 
 
-	public void setCompanDIfficultyRating(int companyDifficultyRating) {
+	public void setCompanDIfficultyRating(Integer companyDifficultyRating) {
 		this.companyDifficultyRating = companyDifficultyRating;
 	}
 
@@ -157,7 +158,7 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return "Review [review_id=" + review_id + ", item_id=" + item_id + ",user_id=" + user_id + ", userRating=" + userRating
+		return "Review [review_id=" + review_id + ", item_id=" + itemId + ",user_id=" + user_id + ", userRating=" + userRating
 				+ ", userDifficultyRating=" + userDifficultyRating + ", userReview=" + userReview
 				+ ", companyRating=" + companyRating + ", companyDifficultyRating=" + companyDifficultyRating
 				+ ", companyReview=" + companyReview + "]";

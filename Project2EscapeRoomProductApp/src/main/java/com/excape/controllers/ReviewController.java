@@ -32,19 +32,19 @@ public class ReviewController {
 	
 	
 	@GetMapping(value = "/reviewsByItem/{id}", produces = "application/json")
-	public List<Review> getReviewsByItem(@PathVariable("id") int itemId) { 
+	public List<Review> getReviewsByItem(@PathVariable("id") Integer itemId) { 
 		return rs.getReviewsByItem(itemId);
 	}
 	
 	
 	@GetMapping(value = "/reviewsByRating/{id}", produces = "application/json")
-	public List<Review> getReviewsByRating(@PathVariable("id") int userRating) {
+	public List<Review> getReviewsByRating(@PathVariable("id") Integer userRating) {
 		return rs.getReviewsByRating(userRating);
 	}
 	
 	
 	@GetMapping(value = "/reviewsByDifficulty/{id}", produces = "application/json")
-	public List<Review> getReviewsByDifficulty(@PathVariable("id") int userDiffRating) {
+	public List<Review> getReviewsByDifficulty(@PathVariable("id") Integer userDiffRating) {
 		return rs.getReviewsByRating(userDiffRating);
 	}
 	

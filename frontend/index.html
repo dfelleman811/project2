@@ -422,16 +422,12 @@
 
             if (this.readyState == 4 && this.status == 200) {
                 let item = JSON.parse(this.responseText);
+                console.log(this.responseText);
 
                 // now that we have the item... pass it the id into the url and send to item page
-                if (item != null) {
-                    let id = item.item_id;
 
-                    let url = `http://localhost:8080/item.html?id=${id}`;
-
-                    window.location.assign(url);
-                }
-                console.log(this.response);
+                window.location.href = (`item.html?id=${item.item_id}`);
+                // console.log(this.response);
             }
         }
 
