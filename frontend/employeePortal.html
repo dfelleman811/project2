@@ -215,29 +215,29 @@
 
                 let profitTable = document.getElementById('mostProfitable');
 
-                for (profit in profitList) {
+                for (i=0; i < 6; i++) {
                     
                     let newRow = document.createElement('tr');
 
                     // pull from object to populate row
                     let td1 = document.createElement('td');
-                    td1.innerHTML = profitList[profit].itemId;
+                    td1.innerHTML = profitList[i].itemId;
                     newRow.append(td1);
 
                     let td2 = document.createElement('td');
-                    td2.innerHTML = `${profitList[profit].name}`;
+                    td2.innerHTML = `${profitList[i].name}`;
                     newRow.append(td2);
 
                     let td3 = document.createElement('td');
-                    td3.innerHTML = `$ ${profitList[profit].costPerUnit}`;
+                    td3.innerHTML = `$ ${profitList[i].costPerUnit}`;
                     newRow.append(td3);
 
                     let td4 = document.createElement('td');
-                    td4.innerHTML = `$ ${profitList[profit].retailPerUnit}`;
+                    td4.innerHTML = `$ ${profitList[i].retailPerUnit}`;
                     newRow.append(td4);
 
                     let td5 = document.createElement('td');
-                    td5.innerHTML = `$ ${profitList[profit].totalProfitMade}`;
+                    td5.innerHTML = `$ ${profitList[i].totalProfitMade}`;
                     newRow.append(td5);
                     
                     profitTable.append(newRow);
@@ -264,25 +264,25 @@
                 // get element by id
                 let popTable = document.getElementById('mostPopular');
 
-                for (item in itemList) {
-                    let id = itemList[item].itemId;
-                    let qty = itemList[item].totalQuantitySold;
+                for (i=0; i < 6; i++) {
+                    let id = itemList[i].itemId;
+                    let qty = itemList[i].totalQuantitySold;
                     let getItem = new XMLHttpRequest();
                     getItem.open("GET", `http://localhost:8080/items/${id}`, true);
                     getItem.send();
                     getItem.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
-                            let i = JSON.parse(this.responseText);
-                            console.log(i);
+                            let item = JSON.parse(this.responseText);
+                            console.log(item);
                             // create new table row
                             let newRow = document.createElement('tr');
                             // create table data
                             let td1 = document.createElement('td');
-                            td1.innerHTML = i.item_id;
+                            td1.innerHTML = item.item_id;
                             newRow.append(td1);
 
                             let td2 = document.createElement('td');
-                            td2.innerHTML = i.name;
+                            td2.innerHTML = item.name;
                             newRow.append(td2);
 
                             let td3 = document.createElement('td');
@@ -306,29 +306,29 @@
 
                 let revTable = document.getElementById("highestRevenue");
 
-                for (rev in revList) {
+                for (i=0; i < 6; i++) {
                     //create a new row
                     let newRow = document.createElement('tr');
 
                     // pull from object to populate row
                     let td1 = document.createElement('td');
-                    td1.innerHTML = revList[rev].itemId;
+                    td1.innerHTML = revList[i].itemId;
                     newRow.append(td1);
 
                     let td2 = document.createElement('td');
-                    td2.innerHTML = `${revList[rev].name}`;
+                    td2.innerHTML = `${revList[i].name}`;
                     newRow.append(td2);
 
                     let td3 = document.createElement('td');
-                    td3.innerHTML = revList[rev].totalQuantitySold;
+                    td3.innerHTML = revList[i].totalQuantitySold;
                     newRow.append(td3);
 
                     let td4 = document.createElement('td');
-                    td4.innerHTML = `$ ${revList[rev].retailPerUnit}`;
+                    td4.innerHTML = `$ ${revList[i].retailPerUnit}`;
                     newRow.append(td4);
 
                     let td5 = document.createElement('td');
-                    td5.innerHTML = `$ ${revList[rev].totalRetailEarnings}`;
+                    td5.innerHTML = `$ ${revList[i].totalRetailEarnings}`;
                     newRow.append(td5);
                     
                     revTable.append(newRow);

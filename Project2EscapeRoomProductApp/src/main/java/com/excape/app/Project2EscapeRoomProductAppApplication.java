@@ -16,5 +16,5 @@ public class Project2EscapeRoomProductAppApplication {
 		SpringApplication.run(Project2EscapeRoomProductAppApplication.class, args);
 	}
 	
-		// add @Bean WebMvcConfigurer with corsRegistry registry
+		
 }
