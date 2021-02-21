@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excape - Escape Room Supplies</title>
+    <title>Excape - Registration</title>
 
     <link rel="icon" type="img/png" href="img/favicon.png">
 
@@ -23,39 +23,60 @@
 	</mvc:cors>
 </head>
 <body>
-<div class="container-fluid h-100">
-    <!-- Header -->
-    <nav class="navbar navbar-expand-md bg-light sticky-top py-2">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Excape</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse text-right" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto flex-nowrap">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.html">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart.html">Cart</a>
-                    </li>
-                    <li class="nav-item d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit" onclick="search()">Search</button>
-                    </li>
-                </ul>
+      
+    <div class="container">
+         <!-- Modal for Confirming Registration has succeeded --> 
+     <div class="modal fade" id="exampleModalCenter">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalTitle">Modal title</h5>
+                </div>
+                <div class="modal-body">
+                    Test Modal
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
+    </div>
+
+    <div class="container-fluid h-100">
+       
+        <!-- Header -->
+        <nav class="navbar navbar-expand-md bg-light sticky-top py-2">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Excape</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse text-right" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto flex-nowrap">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutUs.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.html">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.html">Cart</a>
+                        </li>
+                        <li class="nav-item d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit" onclick="search()">Search</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
     <div class="text-center mt-5" style="padding-top:5%">
         <form style="max-width:480px; margin:auto;">
@@ -160,6 +181,10 @@
                 <input type="password" id="password" class="form-control" placeholder="Password" required>
             <div class="d-grid gap-2 mt-3">
                 <button class="btn btn-large btn-success" type="button" onclick="register()">Register</button>
+                 <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Launch demo modal
+    </button>
             </div>
         </form>
         <br>
