@@ -38,8 +38,11 @@ public class ExcapeLoginStepImpl {
 	@Then("^The title of the current page should be \"([^\"]*)\"$")
 	public void the_title_of_the_current_page_should_be(String title) {
 		
-		// wait for ajax?
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		try {
+			Thread.sleep(3000);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	
 		// check the title of the page
 		assertEquals(title, driver.getTitle());

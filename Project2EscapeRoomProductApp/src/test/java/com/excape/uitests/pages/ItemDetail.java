@@ -12,6 +12,12 @@ public class ItemDetail {
 	
 	// Page Elements
 	
+	@FindBy(id = "itemName")
+	public WebElement header;
+	
+	@FindBy(id = "itemImage")
+	public WebElement itemImage;
+	
 	@FindBy(xpath = "/html/body/div[3]/button")
 	public WebElement addToCart;
 	
