@@ -22,7 +22,7 @@
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
 </head>
-<body onload="getItem()">
+<body onload="getItem(); getReviews()">
 
         <!-- Header -->
         <nav class="navbar navbar-expand-md bg-light sticky-top py-2">
@@ -71,10 +71,7 @@
         </div>
 
         <div class="container" style="margin-top:50px">
-            <h4>Reviews</h4>
-            <p id="reviewContents"></p>
-            <p id="companyRating"></p>
-            <p id="companyDifficultyRating"></p>
+            <h4 id="reviews">Reviews</h4>
         </div>
 
         <div class="container text-center">
@@ -129,18 +126,26 @@
 
         let id = urlParams.get('id');
 
-        xhttp.open("GET",`http://localhost:8080/reviewsByItem/${id})`, true);
+        xhttp.open("GET",`http://localhost:8080/reviewsByItem/${id}`, true);
 
         xhttp.send();
 
         xhttp.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200){
-                let review = JSON.parse(this.responseText);
-                console.log(review);
+                let reviews = JSON.parse(this.responseText);
+                let htmlReviews = document.getElementById('reviews');
+                htmlReviews.insertAdjacentHTML('beforeend','<hr>')
+                for(i = 0; i < reviews.length; i++){
+                    let review = reviews[i];
+                    console.log(review);
+                    htmlReviews.insertAdjacentHTML('afterend','<hr>');
+                    htmlReviews.insertAdjacentHTML('afterend','<p>User Rating: ' + review.userRating + '</p>');
+                    htmlReviews.insertAdjacentHTML('afterend','<p>User Difficulty Rating: ' + review.userDifficultyRating + '</p>')
+                    htmlReviews.insertAdjacentHTML('afterend','<p>' + review.userReview + '</p>');
+                }
 
-                document.getElementById("reviewContents").innerHTML = review.company_review;
-                document.getElementById("companyRating").innerHTML = "Overall Rating: " + review.company_rating;
-                document.getElementById("companyDifficultyRating").innerHTML = "Difficulty Rating: " + review.company_difficulty_rating;
+
+
             }
         }
     }
@@ -170,6 +175,32 @@
 
         window.location.href = "cart.html";
     }
+
+    function search() {
+
+// Collect input from search field
+let searchInput = document.getElementById("search").value;
+
+let xhttp = new XMLHttpRequest();
+
+xhttp.open("GET", `http://localhost:8080/items/search?name=${searchInput}`, true);
+
+xhttp.send();
+
+xhttp.onreadystatechange = function() {
+
+    if (this.readyState == 4 && this.status == 200) {
+        let item = JSON.parse(this.responseText);
+        console.log(this.responseText);
+
+        // now that we have the item... pass it the id into the url and send to item page
+
+        window.location.href = (`item.html?id=${item.item_id}`);
+        // console.log(this.response);
+    }
+}
+
+}
 
 </script>
 </html>

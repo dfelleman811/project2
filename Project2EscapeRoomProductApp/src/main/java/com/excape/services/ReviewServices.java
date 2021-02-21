@@ -8,11 +8,11 @@ public interface ReviewServices {
 	
 	public Review getReview(int reviewId);
 	
-	public List<Review> getReviewsByItem(int itemId);
+	public List<Review> getReviewsByItem(Integer itemId);
 	
-	public List<Review> getReviewsByRating(int userRating);
+	public List<Review> getReviewsByRating(Integer userRating);
 	
-	public List<Review> getReviewsByDifficulty(int userDiffRating);
+	public List<Review> getReviewsByDifficulty(Integer userDiffRating);
 	
 	public Review addReview(Review r);
 	

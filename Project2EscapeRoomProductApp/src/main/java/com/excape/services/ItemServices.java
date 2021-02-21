@@ -8,7 +8,7 @@ public interface ItemServices {
 
 	public Item getItem(int itemId);
 	
-	public List<Item> getItem(String itemName);
+	public Item getItem(String itemName);
 
 	public List<Item> getAllItems();
 	

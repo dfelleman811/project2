@@ -10,6 +10,7 @@ import com.excape.beans.Review;
 @Repository
 public interface ReviewRepo extends CrudRepository<Review, Integer> {
 
-	public List<Review> findByUserRating(int userRating);
-	public List<Review> findByUserDifficultyRating(int userDifficultyRating);
+	public List<Review> findByUserRating(Integer userRating);
+	public List<Review> findByUserDifficultyRating(Integer userDifficultyRating);
+	public List<Review> findByItemId(Integer itemId);
 }

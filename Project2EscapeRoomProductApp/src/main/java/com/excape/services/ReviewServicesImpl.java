@@ -20,17 +20,17 @@ public class ReviewServicesImpl implements ReviewServices {
 	}
 
 	@Override
-	public List<Review> getReviewsByItem(int itemId) {
-		return (List<Review>) rr.findAll();
+	public List<Review> getReviewsByItem(Integer itemId) {
+		return (List<Review>) rr.findByItemId(itemId);
 	}
 
 	@Override
-	public List<Review> getReviewsByRating(int userRating) {
+	public List<Review> getReviewsByRating(Integer userRating) {
 		return rr.findByUserRating(userRating);
 	}
 
 	@Override
-	public List<Review> getReviewsByDifficulty(int userDiffRating) {
+	public List<Review> getReviewsByDifficulty(Integer userDiffRating) {
 		return rr.findByUserDifficultyRating(userDiffRating);
 	}
 
