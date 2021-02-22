@@ -2,11 +2,14 @@ package com.excape.uitests.steps;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.excape.uitests.UITestRunner;
 import com.excape.uitests.pages.ItemDetail;
@@ -39,8 +42,10 @@ public class ItemDetailStepImpl {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		((WebElement) driver.findElement(By.cssSelector("#decoder > div > a")).getLocation()).click();
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebElement ele = driver.findElement(By.xpath("/html/body/main/div[4]/div[5]/div/div/a/img"));
+		wait.until(ExpectedConditions.elementToBeClickable(ele));
+		ele.click();
 		
 	}
 
