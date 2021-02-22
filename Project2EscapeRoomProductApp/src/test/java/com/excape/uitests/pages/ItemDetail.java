@@ -11,6 +11,8 @@ public class ItemDetail {
 	WebDriver driver;
 	
 	// Page Elements
+	@FindBy(xpath = "/html/body/main/div[4]/div[5]/div/div/a/img")
+	public WebElement dotToDot;
 	
 	@FindBy(id = "itemName")
 	public WebElement header;
