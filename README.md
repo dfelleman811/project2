@@ -9,13 +9,13 @@ The Escape Room Retail Application is a web application designed to provide a fi
 
 ## Project Description  
 Excape's web application is an online retail store that sells Puzzles, Locks, and more items
-to Room Escape builders across the United States. Users can access the home page,
-which displays featured products, and categorizes products by their type. 
+to Escape Room builders across the United States. Users can access the home page,
+which displays featured products and categorizes products by their type. 
 An employee user has the added capability of an Employee Portal, where they can 
 add new products to the inventory as well as view aggregated details pertaining to sales.
 
 ## Features  
-- Employee user can add product inventory  
+- Employee user can add new product to inventory  
 - Customer user can navigate shop page, view item details, and add items to cart for purchase  
 - Employee user has access to an Dashboard/Portal to view basic business reports  
 
@@ -42,12 +42,13 @@ In future development, we would like to encorporate the below functionalities:
 - Spring Data
 - Spring MVC
 - Spring Test
+- Mock MVC
 - Mockito
 - JUnit 5
 - Selenium
 - Cucumber
 - PostgreSQL 
-- Amazon RDS
+- AWS RDS
 - DBeaver
 - Git
 - Eclipse
