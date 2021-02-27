@@ -140,7 +140,7 @@
 
                 <div class="form-group-row">
                     <div class="col-sm-10">
-                        <button type="submit" style="margin-top:10px" class="btn btn-success" onclick="submit()">Submit</button>
+                        <button type="submit" style="margin-top:10px" class="btn btn-success" id="formSubmit" >Submit</button>
                     </div>
                 </div>
                 </form>
@@ -345,9 +345,11 @@
 
 
     // Function to create a new item in inventory
+    let submitButton = document.getElementById("formSubmit");
+    submitButton.addEventListener("click", submit(event));
 
-    function submit() {
-
+    function submit(event) {
+        event.preventDefault();
         // collect input
         let newName = document.getElementById('name').value;
         let newDesc = document.getElementById('description').value;
@@ -368,7 +370,7 @@
             type : newType,
             vendor_id : vid
         }
-
+        console.log(newItem);
         // AJAX call to server to add new inventory item
         let xhttp2 = new XMLHttpRequest();
 
