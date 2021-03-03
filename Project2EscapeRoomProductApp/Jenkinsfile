@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    environement {
+        TEST_ENV_VAR = 'test environment variable'
+    }
+    stages {
+        stage('Pre-Build') {
+            steps {
+               // any pre-build steps
+               echo "Environment variable is: ${TEST_ENV_VAR}"
+            }
+            
+        }
+        stage('Build') {
+            steps {
+                // build steps
+            }
+        }
+        stage('Test') {
+            steps {
+                // testing steps
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // steps to deploy
+            }
+        }
+    }
+}
